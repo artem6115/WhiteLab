@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WhiteLab.PCConfigurator": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
