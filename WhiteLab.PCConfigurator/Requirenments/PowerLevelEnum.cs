@@ -14,5 +14,8 @@ public enum PowerLevelEnum
     Progaming,
     RenderWork,
     HardRender,
-    ProRender
+    ProRender,
+    GamingAndRender,
+    HardGamingAndRender,
+    UltraGamingAndRender
 }

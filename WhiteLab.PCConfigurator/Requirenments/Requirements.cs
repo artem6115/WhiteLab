@@ -10,6 +10,7 @@ public class Requirements
     public ushort ScreenResolution { get; set; }
     public PowerLevelEnum PowerLevel { get; set; }
     public List<string> Programs { get; set; } = new();
+
     public ImportanceMultithreadingEnum Multithreading { get; set; }
     public OverclockingEnum OverclockingSupport { get; set; }
 

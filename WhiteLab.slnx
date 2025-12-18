@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="WhiteLab.Bot/WhiteLab.Bot.csproj" Id="df21c17d-5c28-4e11-84bb-448e3f26823c" />
   <Project Path="WhiteLab.PCConfigurator/WhiteLab.PCConfigurator.csproj" />
+  <Project Path="WhiteLab.Telegram/WhiteLab.Telegram.csproj" Id="d91af09b-5974-4bb1-9335-8c519a84bc79" />
 </Solution>
