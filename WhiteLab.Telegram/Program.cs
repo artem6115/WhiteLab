@@ -33,19 +33,21 @@ internal class Program
         {
             throw new ArgumentException("Telegram token wasn`t given");
         }
-        var opt = new ReceiverOptions();// choose current update types
+        TelegramOptions.Token = token;
+        var opt = new ReceiverOptions() { AllowedUpdates = [UpdateType.CallbackQuery, UpdateType.Message] };
         var bot = new TelegramBotClient(token);
         bot.StartReceiving<TelegramRecipient>(opt, source.Token);
+        Console.WriteLine("Start bot");
         Console.ReadLine();
     }
 
     private static void Exit(CancellationTokenSource source)
     {
-        if (!source.IsCancellationRequested)
-        {
-            source.Cancel();
-            Thread.Sleep(1500);
-        }
+        source.Cancel();
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("Stopping...");
+        Console.ResetColor();
+        Thread.Sleep(1500);
     }
 
     private static void UnhandleError(object sender, UnhandledExceptionEventArgs e)
