@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WhiteLab.PCConfigurator\WhiteLab.PCConfigurator.csproj" />
+    <ProjectReference Include="..\WhiteLab.Telegram\WhiteLab.Telegram.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="NUnit.Framework" />
   </ItemGroup>
 
