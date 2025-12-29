@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WhiteLab.PCConfigurator.Core;
+﻿namespace WhiteLab.PCConfigurator.Core;
 
 public class PCConfig
 {
@@ -16,9 +12,6 @@ public class PCConfig
 
     public List<PCComponent> Components { get; set; } = new();
 
-    public PCComponent? this [string name] => Components.FirstOrDefault
+    public PCComponent? this[string name] => Components.FirstOrDefault
         (c => string.Equals(c.Name, name, StringComparison.InvariantCultureIgnoreCase));
-    
-
 }
-
