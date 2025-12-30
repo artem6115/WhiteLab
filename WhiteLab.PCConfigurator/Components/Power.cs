@@ -1,5 +1,4 @@
 ﻿namespace WhiteLab.PCConfigurator.Components;
-
-public class CPU
+public class Power
 {
 }

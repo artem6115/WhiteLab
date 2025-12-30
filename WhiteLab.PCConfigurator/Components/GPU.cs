@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace WhiteLab.PCConfigurator.Components;
 
-namespace WhiteLab.PCConfigurator.Components;
-
-internal class GPU
+public class GPU
 {
     public bool InStock { get; set; }
     public string Seria { get; set; }

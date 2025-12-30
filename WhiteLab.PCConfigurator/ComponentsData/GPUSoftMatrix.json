@@ -3703,16 +3703,21 @@
                 "RTX 4080": "16GB GDDR6X",
                 "RTX 4080 Super": "16GB GDDR6X",
                 "RTX 4090": "24GB GDDR6X",
+                "RTX 5050": "6GB GDDR6",
+                "RTX 5060": "8GB GDDR6",
+                "RTX 5060 Ti 8GB": "8GB GDDR7",
+                "RTX 5060 Ti 16GB": "16GB GDDR7",
                 "RTX 5070": "12GB GDDR7",
                 "RTX 5080": "16GB GDDR7",
                 "RTX 5080 Super": "24GB GDDR7",
                 "RTX 5090": "24GB GDDR7"
             }
         },
-        "algorithm_notes": {
-            "path": "Game -> Resolution -> Graphics Level -> GPU + VRAM",
-            "scaling": "Ti/Super = 15-30% better performance",
-            "vram_key": "4K+Ultra требует 16GB+ VRAM"
+        "gpu_alternative": {
+            "RTX 3060": "RTX 5050",
+            "RTX 4060": "RTX 5060",
+            "RTX 3060 Ti 8GB": "RTX 5060 Ti 8 GB",
+            "RTX 3070": "RTX 5060 Ti 16 GB"
         }
     }
 }
