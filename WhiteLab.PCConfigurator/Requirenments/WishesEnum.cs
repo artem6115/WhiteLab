@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WhiteLab.PCConfigurator.Requirenments;
+﻿namespace WhiteLab.PCConfigurator.Requirenments;
 
 public enum WishesEnum
 {
@@ -21,5 +17,5 @@ public enum WishesEnum
     ORM64GB,
     GPU12GB,
     GPU16GB,
-    GPU32GB
+    ImageOnCooling
 }

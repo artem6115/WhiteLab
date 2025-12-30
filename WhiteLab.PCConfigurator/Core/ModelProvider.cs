@@ -21,6 +21,13 @@ internal static class ModelProvider
         return json["gpu_recommendation_system_v2"].ThrowIfDataIsNull("GPUSoftMatrix.json is empty or invalid");
     }
 
+    public async static Task<JsonNode> GetGPUTirMatrix(CancellationToken ct)
+    {
+        var jsonStr = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "GPUTirMatrix.json"), ct);
+        return JsonObject.Parse(jsonStr, new JsonNodeOptions { PropertyNameCaseInsensitive = true })
+            .ThrowIfDataIsNull("GPUTirMatrix.json is empty or invalid");
+    }
+
     public async static Task<List<CPU>> GetCPUs(CancellationToken ct)
     {
         throw new NotImplementedException();

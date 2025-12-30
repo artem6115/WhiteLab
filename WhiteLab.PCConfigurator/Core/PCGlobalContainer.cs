@@ -44,6 +44,7 @@ internal static class PCGlobalContainer
 
             var rel = new ComponentRelationships();
             rel.GPUSoftMatrix = await ModelProvider.GetGPUSoftMatrix(ct);
+            rel.GPUTirMatrix = await ModelProvider.GetGPUTirMatrix(ct);
 
             _container = con;
             _relationships = rel;

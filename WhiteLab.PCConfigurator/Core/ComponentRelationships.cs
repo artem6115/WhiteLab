@@ -5,4 +5,5 @@ namespace WhiteLab.PCConfigurator.Core;
 internal class ComponentRelationships
 {
     public JsonNode GPUSoftMatrix { get; set; } = null!;
+    public JsonNode GPUTirMatrix { get; set; } = null!;
 }

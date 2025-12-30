@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WhiteLab.PCConfigurator.Requirenments;
+﻿namespace WhiteLab.PCConfigurator.Requirenments;
 
 public enum RgbEnum
 {
-    Default,
-    No,
-    Yes,
-    ALL
+    MotherBoard,
+    RAM,
+    Cooling,
+    Fans,
+    GPU,
+    Сable
 }

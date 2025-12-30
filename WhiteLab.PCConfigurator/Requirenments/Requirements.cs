@@ -8,7 +8,7 @@ public class Requirements
     //price
     public TargetEnum Target { get; set; }
     public ushort ScreenResolution { get; set; }
-    public PowerLevelEnum PowerLevel { get; set; }
+    public PowerLevelEnum PowerLevel { get; set; } = new();
     public List<string> Programs { get; set; } = new();
 
     public ImportanceMultithreadingEnum Multithreading { get; set; }
@@ -25,7 +25,7 @@ public class Requirements
     public FormFactor FormFactor { get; set; }
     public BodyTypeEnum BodyType { get; set; }
     public bool WillUnderTablePosition { get; set; }
-    public RgbEnum Rgb { get; set; }
+    public List<RgbEnum> Rgb { get; set; } = new();
     public ColorStyleEnum ColorStyle { get; set; }
     //front
 
