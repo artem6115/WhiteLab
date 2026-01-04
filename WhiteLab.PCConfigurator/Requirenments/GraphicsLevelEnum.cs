@@ -4,10 +4,11 @@ using System.Text;
 
 namespace WhiteLab.PCConfigurator.Requirenments;
 
-public enum ColorStyleEnum
+public enum GraphicsLevelEnum
 {
     Default,
-    White,
-    Silver,
-    Dark
+    Low,
+    Medium,
+    High,
+    Ultra
 }

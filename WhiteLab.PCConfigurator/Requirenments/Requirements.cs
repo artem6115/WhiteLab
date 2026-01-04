@@ -8,7 +8,9 @@ public class Requirements
     //price
     public TargetEnum Target { get; set; }
     public ushort ScreenResolution { get; set; }
-    public PowerLevelEnum PowerLevel { get; set; } = new();
+    public GraphicsLevelEnum GraphicsLevel { get; set; }
+
+    //public PowerLevelEnum PowerLevel { get; set; } = new();
     public List<string> Programs { get; set; } = new();
 
     public ImportanceMultithreadingEnum Multithreading { get; set; }
@@ -22,6 +24,7 @@ public class Requirements
     public byte PCUpgradeCooldown { get; set; }
 
     //other
+    public bool YangestComponents { get; set; }
     public FormFactor FormFactor { get; set; }
     public BodyTypeEnum BodyType { get; set; }
     public bool WillUnderTablePosition { get; set; }

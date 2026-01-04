@@ -1,4 +1,6 @@
-﻿namespace WhiteLab.PCConfigurator.Components;
+﻿using System.Text.Json.Serialization;
+
+namespace WhiteLab.PCConfigurator.Components;
 
 public class GPU
 {
@@ -12,6 +14,12 @@ public class GPU
     public int Frequency { get; set; }
     public int Power { get; set; }
     public int Width { get; set; }
-    public bool led { get; set; }
+    public bool Led { get; set; }
+
+    [JsonIgnore]
     public List<string> Models { get; set; }
+
+    [JsonPropertyName("Models")]
+    public string ModelsString { set { Models = value.Split(',').Select(m => m.Trim()).ToList();}}
+
 }

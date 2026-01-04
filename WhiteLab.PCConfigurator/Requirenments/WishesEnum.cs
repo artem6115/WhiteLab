@@ -4,9 +4,7 @@ public enum WishesEnum
 {
     No,
     CPUAMD,
-    GPUAMD,
     CPUIntel,
-    GPUNvidia,
     AM5,
     LGA1700,
     LGA1851,
@@ -15,7 +13,6 @@ public enum WishesEnum
     ORM16GB,
     ORM32GB,
     ORM64GB,
-    GPU12GB,
-    GPU16GB,
-    ImageOnCooling
+    ImageOnCooling,
+    GPULed,
 }

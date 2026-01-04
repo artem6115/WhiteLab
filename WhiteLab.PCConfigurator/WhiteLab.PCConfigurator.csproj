@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Containers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="ComponentsData\*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

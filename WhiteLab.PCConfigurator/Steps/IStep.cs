@@ -4,6 +4,8 @@ namespace WhiteLab.PCConfigurator.Steps;
 
 internal interface IStep
 {
-    PCContainer SelectComponents();
-    PCContainer GetCheaper(int cheapLevel);
+    void SetupBaseComponents();
+    bool FilterAndCheap(int cheapLevel = 0);
+    public int MaxCheapLevel { get; }
+
 }
