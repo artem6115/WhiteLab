@@ -6,11 +6,11 @@ public class Requirements
     public uint Budget { get; set; }
     public byte Region { get; set; }
     //price
-    public TargetEnum Target { get; set; }
+    //public TargetEnum Target { get; set; }
     public ushort ScreenResolution { get; set; }
     public GraphicsLevelEnum GraphicsLevel { get; set; }
 
-    //public PowerLevelEnum PowerLevel { get; set; } = new();
+    public PowerLevelEnum PowerLevel { get; set; } = new();
     public List<string> Programs { get; set; } = new();
 
     public ImportanceMultithreadingEnum Multithreading { get; set; }
