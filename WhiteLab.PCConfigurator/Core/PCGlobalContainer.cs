@@ -41,10 +41,13 @@ internal static class PCGlobalContainer
             _cacheExpire = DateTime.Now.AddMinutes(5);//.AddDays(1);
             var con = new PCContainer();
             con.Gpus = await ModelProvider.GetGPUs(ct);
+            con.Cpus = await ModelProvider.GetCPUs(ct);
 
             var rel = new ComponentRelationships();
             rel.GPUSoftMatrix = await ModelProvider.GetGPUSoftMatrix(ct);
             rel.GPUTirMatrix = await ModelProvider.GetGPUTirMatrix(ct);
+
+            rel.CPUSoftMatrix= await ModelProvider.GetCPUSoftMatrix(ct);
 
             _container = con;
             _relationships = rel;

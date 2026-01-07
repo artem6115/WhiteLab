@@ -1,16 +1,19 @@
-﻿namespace WhiteLab.PCConfigurator.Core;
+﻿
+using WhiteLab.PCConfigurator.Components;
+
+namespace WhiteLab.PCConfigurator.Core;
 
 public class PCConfig
 {
     public class PCComponent
     {
-        public PCComponent(string type, string name, int price, string? similarModels, string? description)
+        public PCComponent(IComponent component, string? similarModels, string? description)
         {
-            Type = type;
-            Name = name;
-            Price = price;
+            Type = component.Type;
+            Name = component.Name;
+            Price = component.Price;
             SimilarModels = similarModels;
-            Description = description;
+            Description = component + Environment.NewLine + description;
         }
 
         public string Type { get; set; }

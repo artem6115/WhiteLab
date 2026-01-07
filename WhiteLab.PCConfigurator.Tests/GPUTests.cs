@@ -3,7 +3,7 @@ using WhiteLab.PCConfigurator.Requirenments;
 
 namespace WhiteLab.PCConfigurator.Tests;
 
-public class Tests
+public class GPUTests
 {
     [TestCase(GraphicsLevelEnum.Low, 1080, 50000)]
     [TestCase(GraphicsLevelEnum.Low, 1440, 50000)]

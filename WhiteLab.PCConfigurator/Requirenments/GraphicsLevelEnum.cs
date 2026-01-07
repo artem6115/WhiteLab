@@ -6,7 +6,6 @@ namespace WhiteLab.PCConfigurator.Requirenments;
 
 public enum GraphicsLevelEnum
 {
-    Default,
     Low,
     Medium,
     High,

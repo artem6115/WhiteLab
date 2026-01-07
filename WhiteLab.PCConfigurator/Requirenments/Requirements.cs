@@ -7,13 +7,11 @@ public class Requirements
     public byte Region { get; set; }
     //price
     //public TargetEnum Target { get; set; }
-    public ushort ScreenResolution { get; set; }
+    public ushort ScreenResolution { get; set; } = 1080;
     public GraphicsLevelEnum GraphicsLevel { get; set; }
-
+    public bool ExcludeGpu { get; set; }
     public PowerLevelEnum PowerLevel { get; set; } = new();
     public List<string> Programs { get; set; } = new();
-
-    public ImportanceMultithreadingEnum Multithreading { get; set; }
     public OverclockingEnum OverclockingSupport { get; set; }
 
     // system requirements

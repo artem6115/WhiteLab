@@ -1,7 +1,4 @@
-﻿using System.Globalization;
-using System.Linq;
-using System.Runtime.Intrinsics.X86;
-using WhiteLab.PCConfigurator.Components;
+﻿using WhiteLab.PCConfigurator.Components;
 using WhiteLab.PCConfigurator.Core;
 using WhiteLab.PCConfigurator.Requirenments;
 
@@ -75,12 +72,12 @@ internal class GPUSelectionStep : IStep
 
         var modelSplit = GetModelAndRam(selectedTopModel);
         resultModels.Add((modelSplit.Model, modelSplit.RAM, gpusSorted.IndexOf(selectedTopModel)));
-        
 
-        _container.Gpus = _container.Gpus.Where(g => resultModels.Where(m => string.Equals(m.Model, g.Seria, StringComparison.InvariantCultureIgnoreCase) && g.RAM >= m.RAM).Any())
+
+        _setupGpus = _container.Gpus.Where(g => resultModels.Where(m => string.Equals(m.Model, g.Seria, StringComparison.InvariantCultureIgnoreCase) && g.RAM >= m.RAM).Any())
             .Where(WhereFormFactorAndGPUWidth)
             .ToList();
-        _setupGpus = _container.Gpus;
+        _container.Gpus = [];
     }
 
     private string? GetNormilizeName(string alias)
@@ -97,12 +94,11 @@ internal class GPUSelectionStep : IStep
 
     public bool FilterAndCheap(int cheapLevel = 0)
     {
+        _container.Gpus = [];
         IEnumerable<GPU> gpus;
-        var n = Environment.NewLine;
         switch (cheapLevel)
         {
             case 0:
-                _container.GpusInfo = $"Современая видеокарта 5000 серии, под цвет {_requirements.ColorStyle}, с наличием подсветки и rgb{n}GPU под форма фактор {_requirements.FormFactor}";
                 gpus = _setupGpus
                     .Where(g => !_requirements.YangestComponents || g.Seria.StartsWith("RTX 5"))
                     .Where(WhereColorStyleAndGPUColor)
@@ -110,29 +106,26 @@ internal class GPUSelectionStep : IStep
                     .Where(WhereRgbAndSupportGPU);
                 break;
             case 1:
-                _container.GpusInfo = $"Современая видеокарта 5000 серии, под цвет {_requirements.ColorStyle}, с наличием подсветки{n}GPU под форма фактор {_requirements.FormFactor}";
-                _container.GpusInfo += $"{n}Требования к наличию rgb были опущены";
+               
+                _container.GpusInfo += $"Требования к наличию rgb были опущены";
                 gpus = _setupGpus
                     .Where(g => !_requirements.YangestComponents || g.Seria.StartsWith("RTX 5"))
                     .Where(WhereColorStyleAndGPUColor)
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.GPULed) || g.Led);
                 break;
             case 2:
-                _container.GpusInfo = $"Современая видеокарта 5000 серии, под цвет {_requirements.ColorStyle}{n}GPU под форма фактор {_requirements.FormFactor}";
-                _container.GpusInfo += $"{n}Требования к наличию подсветки и rgb были опущены";
+                _container.GpusInfo += $"Требования к наличию подсветки и rgb были опущены";
                 gpus = _setupGpus
                     .Where(g => !_requirements.YangestComponents || g.Seria.StartsWith("RTX 5"))
                     .Where(WhereColorStyleAndGPUColor);
                 break;
             case 3:
-                _container.GpusInfo = $"Современая видеокарта 5000 серии{n}GPU под форма фактор {_requirements.FormFactor}";
-                _container.GpusInfo += $"{n}Требования к цвету, наличию подсветки и rgb были опущены";
+                _container.GpusInfo += $"Требования к цвету, наличию подсветки и rgb были опущены";
                 gpus = _setupGpus
                     .Where(g => !_requirements.YangestComponents || g.Seria.StartsWith("RTX 5"));
                 break;
             default:
-                _container.GpusInfo = $"GPU под форма фактор {_requirements.FormFactor}";
-                _container.GpusInfo += $"{n}Требования к новизне, цвету, наличию подсветки и rgb были опущены";
+                _container.GpusInfo += $"Требования к новизне, цвету, наличию подсветки и rgb были опущены";
                 gpus = _setupGpus;
                 break;
         }
@@ -184,5 +177,11 @@ internal class GPUSelectionStep : IStep
         }
 
         return false;
+    }
+
+    public void ClearContainer()
+    {
+        _container.Gpus = [];
+        _container.GpusInfo = "";
     }
 }

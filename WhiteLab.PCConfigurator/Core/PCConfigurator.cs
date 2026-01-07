@@ -10,12 +10,16 @@ public class PCConfigurator
         var container = await PCGlobalContainer.GetContainerAsync(ct);
         var relationships = await PCGlobalContainer.GetRelationShipsAsync(ct);
 
-        IStep[] steps = [new GPUSelectionStep(requirements, container, relationships)];
-        foreach (var step in steps) step.SetupBaseComponents();
+        List<IStep> steps = [
+            new CPUSelectionStep(requirements, container, relationships)
+        ];
+        if (!requirements.ExcludeGpu) steps.Insert(0, new GPUSelectionStep(requirements, container, relationships));
+        foreach (var step in steps) step?.SetupBaseComponents();
+        if (requirements.ExcludeGpu)  container.Gpus = [];
 
         bool Filtering(int stepIndex = 0)
         {
-            if (steps.Length == stepIndex) return true;
+            if (steps.Count == stepIndex) return true;
 
             var step = steps[stepIndex];
             for (int i = 0; i <= step.MaxCheapLevel; i++)
@@ -25,11 +29,12 @@ public class PCConfigurator
                 r &= Filtering(stepIndex + 1);
                 if (r) return true;
             }
-
+            step.ClearContainer();
             return false;
         }
-        if (!container.IsComposed()) return PCConfigResult.Set(null, "По заданым требования не удалось подобрать комплектующие");
+        
         var resultCnf = Filtering();
+        if (!container.IsComposed(requirements.ExcludeGpu)) return PCConfigResult.Set(null, "По заданым требования не удалось подобрать комплектующие");
         var result = resultCnf ? CreatePCConfig(container) : null;
         return PCConfigResult.Set(result, "Бюджета не хватило сборку пк удовлетворяющего только системным требованиям");
     }
@@ -40,8 +45,10 @@ public class PCConfigurator
 
         pc.Components =
         [
-            new PCConfig.PCComponent("Видеокарта", $"{container.Gpus[0].Seria} {container.Gpus[0].Models[0]} {container.Gpus[0].RAM}GB", container.Gpus[0].Price,string.Join(',', container.Gpus.Take(3).SelectMany(m => m.Models.Select(mm => $"{m.Seria} {mm}"))), container.GpusInfo)
+            new PCConfig.PCComponent(container.Cpus[0], null, container.CpusInfo),
+
         ];
+        if (container.Gpus.Any()) pc.Components.Insert(0, new PCConfig.PCComponent(container.Gpus[0], string.Join(',', container.Gpus.Take(3).SelectMany(m => m.Models.Select(mm => $"{m.Seria} {mm}"))), container.GpusInfo));
 
         return pc;
     }

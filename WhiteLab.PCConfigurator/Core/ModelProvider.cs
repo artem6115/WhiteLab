@@ -30,8 +30,17 @@ internal static class ModelProvider
 
     public async static Task<List<CPU>> GetCPUs(CancellationToken ct)
     {
-        throw new NotImplementedException();
+        var json = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "CPUs.json"), ct);
+        return JsonSerializer.Deserialize<List<CPU>>(json)
+            ?? throw new InvalidDataException("CPUs.json is invalid or empty");
 
+    }
+
+    public async static Task<JsonNode> GetCPUSoftMatrix(CancellationToken ct)
+    {
+        var jsonStr = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "CPUSoft.json"), ct);
+        return JsonObject.Parse(jsonStr, new JsonNodeOptions { PropertyNameCaseInsensitive = true })
+            .ThrowIfDataIsNull("CPUSoft.json is empty or invalid");
     }
 
     public async static Task<List<RAM>> GetRAMs(CancellationToken ct)
