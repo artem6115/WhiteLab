@@ -69,7 +69,16 @@ internal class TelegramRecipient : IUpdateHandler
 
     private async Task HandleAdminUpdateAsync(ITelegramBotClient botClient, Update update, UserData user, CancellationToken ct)
     {
+        if(update.Type == UpdateType.Message)
+        {
+            if(update.Message!.Text != null && update.Message.Text.Trim().ToLower() == "exit")
+            {
+                user.IsAdmin = false;
+                await botClient.SendMessage(user.ChatId, "Выход из режима админимтратора", cancellationToken: ct);
+                return;
+            }
+        }
         user.IsAdmin = true;
-        Console.WriteLine("Admmin " + user!.ChatId);
+        await botClient.SendMessage(user.ChatId, "Принято (admin)✅", cancellationToken: ct);
     }
 }

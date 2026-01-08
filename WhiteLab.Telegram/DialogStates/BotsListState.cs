@@ -14,7 +14,7 @@ internal class BotsListState : IDialogState
     {
         if(callback.Data == "back")
         {
-            user.CurrentState = new MainState();
+            user.CurrentState = user.PreviewState ?? new MainState();
             await user.CurrentState.SendPage(client, user, ct);
         }
     }

@@ -34,6 +34,7 @@ internal static class DefaultState
         }
         else if (text == "/main" || text.StartsWith("главное меню"))
         {
+            user.PreviewState = user.CurrentState;
             user.CurrentState = new MainState();
             await user.CurrentState.SendPage(client, user, ct);
             return true;
