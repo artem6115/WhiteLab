@@ -8,11 +8,11 @@ public enum PowerLevelEnum
     Gaming,
     Streamin,
     HighGaming,
-    Progaming,
-    RenderWork,
+    ProGaming,
+    Render,
     HardRender,
     ProRender,
     GamingAndRender,
     HardGamingAndRender,
-    UltraGamingAndRender
+    ProGamingAndRender
 }

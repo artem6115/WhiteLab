@@ -10,6 +10,7 @@ public class CPU : IComponent
 
     public string Model { get; set; }
     public int Tir { get; set; }
+    public int TDP { get; set; }
     public string CoresAndThreads
     {
         set

@@ -7,6 +7,7 @@
     "BoostedFrequency": "4.0 GHz",
     "WorkScore": 15,
     "GameScore": 35,
+    "TDP": 65,
     "Socket": "AM4",
     "Price": 6500
   },
@@ -18,6 +19,7 @@
     "BoostedFrequency": "3.7 GHz",
     "WorkScore": 12,
     "GameScore": 25,
+    "TDP": 58,
     "Socket": "LGA1700",
     "Price": 4500
   },
@@ -29,6 +31,7 @@
     "BoostedFrequency": "3.5 GHz",
     "WorkScore": 10,
     "GameScore": 20,
+    "TDP": 65,
     "Socket": "AM4",
     "Price": 3800
   },
@@ -40,6 +43,7 @@
     "BoostedFrequency": "3.4 GHz",
     "WorkScore": 8,
     "GameScore": 15,
+    "TDP": 46,
     "Socket": "LGA1700",
     "Price": 3200
   },
@@ -51,6 +55,7 @@
     "BoostedFrequency": "4.2 GHz",
     "WorkScore": 28,
     "GameScore": 55,
+    "TDP": 65,
     "Socket": "AM4",
     "Price": 9500
   },
@@ -62,6 +67,7 @@
     "BoostedFrequency": "4.5 GHz",
     "WorkScore": 25,
     "GameScore": 60,
+    "TDP": 60,
     "Socket": "LGA1700",
     "Price": 10500
   },
@@ -73,6 +79,7 @@
     "BoostedFrequency": "4.2 GHz",
     "WorkScore": 22,
     "GameScore": 50,
+    "TDP": 65,
     "Socket": "AM4",
     "Price": 8200
   },
@@ -84,6 +91,7 @@
     "BoostedFrequency": "4.3 GHz",
     "WorkScore": 19,
     "GameScore": 45,
+    "TDP": 58,
     "Socket": "LGA1700",
     "Price": 8500
   },
@@ -95,6 +103,7 @@
     "BoostedFrequency": "4.7 GHz",
     "WorkScore": 30,
     "GameScore": 68,
+    "TDP": 58,
     "Socket": "LGA1700",
     "Price": 12000
   },
@@ -106,6 +115,7 @@
     "BoostedFrequency": "4.7 GHz",
     "WorkScore": 38,
     "GameScore": 78,
+    "TDP": 148,
     "Socket": "LGA1700",
     "Price": 19500
   },
@@ -117,6 +127,7 @@
     "BoostedFrequency": "4.4 GHz",
     "WorkScore": 33,
     "GameScore": 60,
+    "TDP": 65,
     "Socket": "AM4",
     "Price": 11000
   },
@@ -128,6 +139,7 @@
     "BoostedFrequency": "4.4 GHz",
     "WorkScore": 35,
     "GameScore": 65,
+    "TDP": 117,
     "Socket": "LGA1700",
     "Price": 14500
   },
@@ -139,6 +151,7 @@
     "BoostedFrequency": "4.6 GHz",
     "WorkScore": 36,
     "GameScore": 75,
+    "TDP": 148,
     "Socket": "LGA1700",
     "Price": 18500
   },
@@ -150,6 +163,7 @@
     "BoostedFrequency": "4.8 GHz",
     "WorkScore": 42,
     "GameScore": 80,
+    "TDP": 154,
     "Socket": "LGA1700",
     "Price": 22000
   },
@@ -161,6 +175,7 @@
     "BoostedFrequency": "5.0 GHz",
     "WorkScore": 45,
     "GameScore": 85,
+    "TDP": 65,
     "Socket": "AM5",
     "Price": 16000
   },
@@ -172,6 +187,7 @@
     "BoostedFrequency": "4.0 GHz",
     "WorkScore": 32,
     "GameScore": 62,
+    "TDP": 65,
     "Socket": "AM5",
     "Price": 12500
   },
@@ -183,6 +199,7 @@
     "BoostedFrequency": "4.6 GHz",
     "WorkScore": 52,
     "GameScore": 78,
+    "TDP": 142,
     "Socket": "AM4",
     "Price": 18000
   },
@@ -194,6 +211,7 @@
     "BoostedFrequency": "5.1 GHz",
     "WorkScore": 50,
     "GameScore": 95,
+    "TDP": 181,
     "Socket": "LGA1700",
     "Price": 28000
   },
@@ -205,6 +223,7 @@
     "BoostedFrequency": "5.3 GHz",
     "WorkScore": 65,
     "GameScore": 92,
+    "TDP": 65,
     "Socket": "AM5",
     "Price": 24500
   },
@@ -216,6 +235,7 @@
     "BoostedFrequency": "4.8 GHz",
     "WorkScore": 71,
     "GameScore": 82,
+    "TDP": 142,
     "Socket": "AM4",
     "Price": 25000
   },
@@ -227,6 +247,7 @@
     "BoostedFrequency": "5.4 GHz",
     "WorkScore": 68,
     "GameScore": 94,
+    "TDP": 105,
     "Socket": "AM5",
     "Price": 26500
   },
@@ -238,6 +259,7 @@
     "BoostedFrequency": "5.5 GHz",
     "WorkScore": 72,
     "GameScore": 96,
+    "TDP": 65,
     "Socket": "AM5",
     "Price": 31000
   },
@@ -249,6 +271,7 @@
     "BoostedFrequency": "5.1 GHz",
     "WorkScore": 47,
     "GameScore": 87,
+    "TDP": 65,
     "Socket": "AM5",
     "Price": 17200
   },
@@ -260,6 +283,7 @@
     "BoostedFrequency": "5.3 GHz",
     "WorkScore": 48,
     "GameScore": 88,
+    "TDP": 105,
     "Socket": "AM5",
     "Price": 19500
   },
@@ -271,6 +295,7 @@
     "BoostedFrequency": "5.6 GHz",
     "WorkScore": 82,
     "GameScore": 93,
+    "TDP": 170,
     "Socket": "AM5",
     "Price": 41000
   },
@@ -282,6 +307,7 @@
     "BoostedFrequency": "5.6 GHz",
     "WorkScore": 85,
     "GameScore": 99,
+    "TDP": 120,
     "Socket": "AM5",
     "Price": 48000
   },
@@ -293,6 +319,7 @@
     "BoostedFrequency": "5.4 GHz",
     "WorkScore": 69,
     "GameScore": 97,
+    "TDP": 253,
     "Socket": "LGA1700",
     "Price": 38000
   },
@@ -304,6 +331,7 @@
     "BoostedFrequency": "5.0 GHz",
     "WorkScore": 67,
     "GameScore": 100,
+    "TDP": 120,
     "Socket": "AM5",
     "Price": 38000
   },
@@ -315,6 +343,7 @@
     "BoostedFrequency": "5.2 GHz",
     "WorkScore": 75,
     "GameScore": 100,
+    "TDP": 120,
     "Socket": "AM5",
     "Price": 42000
   },
@@ -326,6 +355,7 @@
     "BoostedFrequency": "5.7 GHz",
     "WorkScore": 90,
     "GameScore": 95,
+    "TDP": 170,
     "Socket": "AM5",
     "Price": 52000
   },
@@ -337,6 +367,7 @@
     "BoostedFrequency": "5.7 GHz",
     "WorkScore": 95,
     "GameScore": 98,
+    "TDP": 120,
     "Socket": "AM5",
     "Price": 58000
   },
@@ -348,6 +379,7 @@
     "BoostedFrequency": "5.9 GHz",
     "WorkScore": 100,
     "GameScore": 97,
+    "TDP": 170,
     "Socket": "AM5",
     "Price": 65000
   },
@@ -359,6 +391,7 @@
     "BoostedFrequency": "5.9 GHz",
     "WorkScore": 100,
     "GameScore": 100,
+    "TDP": 120,
     "Socket": "AM5",
     "Price": 70000
   },
@@ -370,6 +403,7 @@
     "BoostedFrequency": "6.0 GHz",
     "WorkScore": 85,
     "GameScore": 98,
+    "TDP": 253,
     "Socket": "LGA1700",
     "Price": 58000
   },
@@ -381,6 +415,7 @@
     "BoostedFrequency": "5.3 GHz",
     "WorkScore": 55,
     "GameScore": 92,
+    "TDP": 159,
     "Socket": "LGA1851",
     "Price": 32000
   },
@@ -392,6 +427,7 @@
     "BoostedFrequency": "5.5 GHz",
     "WorkScore": 78,
     "GameScore": 96,
+    "TDP": 227,
     "Socket": "LGA1851",
     "Price": 45000
   },
@@ -403,6 +439,7 @@
     "BoostedFrequency": "5.7 GHz",
     "WorkScore": 92,
     "GameScore": 99,
+    "TDP": 260,
     "Socket": "LGA1851",
     "Price": 62000
   },
@@ -414,6 +451,7 @@
     "BoostedFrequency": "6.2 GHz",
     "WorkScore": 88,
     "GameScore": 99,
+    "TDP": 285,
     "Socket": "LGA1700",
     "Price": 48000
   }

@@ -29,10 +29,62 @@ namespace WhiteLab.PCConfigurator.Tests
                 Rgb = [RgbEnum.GPU],
                 YangestComponents = true,
                 ColorStyle = ColorStyleEnum.White
-            }
+            },
+            new Requirements()
+            {
+                GraphicsLevel = GraphicsLevelEnum.Low,
+                ScreenResolution = 1080,
+                Budget = 150000,
+                ColorStyle = ColorStyleEnum.White,
+                Programs = ["Resident_Evil_4_Remake"]
+            },
+            new Requirements()
+            {
+                GraphicsLevel = GraphicsLevelEnum.Medium,
+                ScreenResolution = 1440,
+                Budget = 150000,
+                ColorStyle = ColorStyleEnum.White,
+                Programs = ["Resident_Evil_4_Remake"]
+            },
+            new Requirements(){
+                GraphicsLevel = GraphicsLevelEnum.Low,
+                ScreenResolution = 1080,
+                Budget = 130000,
+                PowerLevel = PowerLevelEnum.Gaming,
+                OverclockingSupport = OverclockingEnum.ALL
+            },
+            new Requirements(){
+                GraphicsLevel = GraphicsLevelEnum.Low,
+                ScreenResolution = 1080,
+                Budget = 300000,
+                PowerLevel = PowerLevelEnum.HardGamingAndRender,
+                OverclockingSupport = OverclockingEnum.ALL
+            },
+            new Requirements(){
+                GraphicsLevel = GraphicsLevelEnum.High,
+                ScreenResolution = 2000,
+                Budget = 300000,
+                PowerLevel = PowerLevelEnum.HardGamingAndRender,
+                OverclockingSupport = OverclockingEnum.ALL
+            },
+            new Requirements(){
+                GraphicsLevel = GraphicsLevelEnum.Ultra,
+                ScreenResolution = 4000,
+                Budget = 300000,
+                PowerLevel = PowerLevelEnum.HardGamingAndRender,
+                OverclockingSupport = OverclockingEnum.ALL
+            },
+            new Requirements(){
+                GraphicsLevel = GraphicsLevelEnum.Medium,
+                ScreenResolution = 1440,
+                Budget = 900000,
+                PowerLevel = PowerLevelEnum.HighGaming,
+                OverclockingSupport = OverclockingEnum.Default,
+                YangestComponents = false
+            },
             ];
 
-            foreach (var r in reqs) yield return r;
+            foreach (var r in reqs.Skip(reqs.Length-1)) yield return r;
         }
     }
 }

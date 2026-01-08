@@ -11,12 +11,12 @@ public class CPUTests
     [TestCase(PowerLevelEnum.Streamin, 50000)]
     [TestCase(PowerLevelEnum.Gaming, 50000)]
     [TestCase(PowerLevelEnum.HighGaming, 50000)]
-    [TestCase(PowerLevelEnum.Progaming, 50000)]
-    [TestCase(PowerLevelEnum.RenderWork, 50000)]
+    [TestCase(PowerLevelEnum.ProGaming, 50000)]
+    [TestCase(PowerLevelEnum.Render, 50000)]
     [TestCase(PowerLevelEnum.HighGaming, 50000)]
     [TestCase(PowerLevelEnum.ProRender, 50000)]
-    [TestCase(PowerLevelEnum.HardGamingAndRender, 50000)]
-    [TestCase(PowerLevelEnum.UltraGamingAndRender, 50000)]
+    [TestCase(PowerLevelEnum.HardGamingAndRender, 300000)]
+    [TestCase(PowerLevelEnum.ProGamingAndRender, 50000)]
     public async Task ManualTest(PowerLevelEnum powerLevel,  int budget)
     {
         var req = new Requirements()

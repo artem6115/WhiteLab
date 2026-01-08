@@ -56,21 +56,18 @@ internal class CPUSelectionStep : IStep
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.LGA1700) || g.Socket == "LGA1700")
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPUAMD) || g.Socket.StartsWith("AM"))
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPUIntel) || g.Socket.StartsWith("LGA"))
-                    .Where(g => _requirements.OverclockingSupport != OverclockingEnum.No || OverclockingSupport(g.Model) == false)
-                    .Where(g => _requirements.OverclockingSupport != OverclockingEnum.Yes || OverclockingSupport(g.Model) == true);
+                    .Where(g => !(_requirements.OverclockingSupport == OverclockingEnum.CPU || _requirements.OverclockingSupport == OverclockingEnum.ALL) || OverclockingSupport(g.Model) == true);
                 break;
             case 1:
                 cpus = _setupCpus
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.LGA1700) || g.Socket == "LGA1700")
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPUAMD) || g.Socket.StartsWith("AM"))
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPUIntel) || g.Socket.StartsWith("LGA"))
-                    .Where(g => _requirements.OverclockingSupport != OverclockingEnum.No || OverclockingSupport(g.Model) == false)
-                    .Where(g => _requirements.OverclockingSupport != OverclockingEnum.Yes || OverclockingSupport(g.Model) == true);
+                    .Where(g => !(_requirements.OverclockingSupport == OverclockingEnum.CPU || _requirements.OverclockingSupport == OverclockingEnum.ALL) || OverclockingSupport(g.Model) == true);
                 break;
             case 2:
                 cpus = _setupCpus
-                    .Where(g => _requirements.OverclockingSupport != OverclockingEnum.No || OverclockingSupport(g.Model) == false)
-                    .Where(g => _requirements.OverclockingSupport != OverclockingEnum.Yes || OverclockingSupport(g.Model) == true);
+                    .Where(g => !(_requirements.OverclockingSupport == OverclockingEnum.CPU || _requirements.OverclockingSupport == OverclockingEnum.ALL) || OverclockingSupport(g.Model) == true);
                 break;
             default:
                 cpus = _setupCpus;

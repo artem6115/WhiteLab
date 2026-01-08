@@ -1,4 +1,6 @@
-﻿namespace WhiteLab.PCConfigurator.Core;
+﻿using System.Threading.Tasks;
+
+namespace WhiteLab.PCConfigurator.Core;
 
 internal static class PCGlobalContainer
 {
@@ -28,6 +30,20 @@ internal static class PCGlobalContainer
         return _relationships!;
     }
 
+    public static string? GetNormilizeName(string alias)
+    {
+        GetRelationShipsAsync(default).GetAwaiter().GetResult();
+        alias = alias.Replace(' ', '_').ToLower().Trim();
+        var programs = _relationships!.GPUSoftMatrix["programm_alias"];
+        foreach (var program in programs!.AsObject())
+        {
+            var aliass = program.Value!.AsArray().Select(v => v!.GetValue<string>());
+            if (aliass.Contains(alias)) return program.Key;
+        }
+
+        return null;
+    }
+
     private async static ValueTask RefreshContainerAsync(CancellationToken ct)
     {
         try
@@ -42,6 +58,8 @@ internal static class PCGlobalContainer
             var con = new PCContainer();
             con.Gpus = await ModelProvider.GetGPUs(ct);
             con.Cpus = await ModelProvider.GetCPUs(ct);
+            con.Motherboards = await ModelProvider.GetMotherboards(ct);
+
 
             var rel = new ComponentRelationships();
             rel.GPUSoftMatrix = await ModelProvider.GetGPUSoftMatrix(ct);

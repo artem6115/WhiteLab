@@ -37,9 +37,9 @@ internal class GPUSelectionStep : IStep
             .ToArray() ?? [];
 
         var softOptModels = _requirements.Programs
-            .Select(GetNormilizeName)
-            .Where(p => p is not null)
             .Select(p => p.Trim().Replace(' ', '_'))
+            .Select(PCGlobalContainer.GetNormilizeName)
+            .Where(p => p is not null)
             .Select(p =>
                 _relationships.GPUSoftMatrix["applications"]
                 ?[p]
@@ -52,7 +52,6 @@ internal class GPUSelectionStep : IStep
             .Select(m => (GetModelAndRam(m.Seria), m.Power))
             .Select(m => (m.Item1.Model, m.Item1.RAM, m.Power))
             .ToArray() ?? [];
-
         var powerLvl = Math.Max(tirOptModels.Min(m => m.Power), (softOptModels.Length > 0) ? softOptModels.Max(m => m.Power) : 0);
         int ramLevel = (softOptModels.Length > 0) ? softOptModels.Max(m => m.RAM) : tirOptModels.Min(m => m.RAM);
         var resultModels = softOptModels.Where(m => m.Power >= powerLvl)

@@ -6,7 +6,8 @@ namespace WhiteLab.PCConfigurator.Requirenments;
 
 public enum OverclockingEnum
 {
-    Maybe,
-    No,
-    Yes
+    Default,
+    RAM,
+    CPU,
+    ALL
 }

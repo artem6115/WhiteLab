@@ -43,6 +43,13 @@ internal static class ModelProvider
             .ThrowIfDataIsNull("CPUSoft.json is empty or invalid");
     }
 
+    public async static Task<List<Motherboard>> GetMotherboards(CancellationToken ct)
+    {
+        var json = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "Motherboards.json"), ct);
+        return JsonSerializer.Deserialize<List<Motherboard>>(json)
+            ?? throw new InvalidDataException("Motherboards.json is invalid or empty");
+    }
+
     public async static Task<List<RAM>> GetRAMs(CancellationToken ct)
     {
         throw new NotImplementedException();
@@ -61,11 +68,7 @@ internal static class ModelProvider
 
     }
 
-    public async static Task<List<MatherBoard>> GetMotherBoards(CancellationToken ct)
-    {
-        throw new NotImplementedException();
 
-    }
 
     public async static Task<List<Cooling>> GetCoolings(CancellationToken ct)
     {
