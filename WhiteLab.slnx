@@ -1,5 +1,4 @@
 <Solution>
-  <Project Path="WhiteLab.Models.ModelProvider/WhiteLab.PCConfigurator.ModelProvider.csproj" />
   <Project Path="WhiteLab.PCConfigurator.Tests/WhiteLab.PCConfigurator.Tests.csproj" />
   <Project Path="WhiteLab.PCConfigurator/WhiteLab.PCConfigurator.csproj" />
   <Project Path="WhiteLab.Telegram/WhiteLab.Telegram.csproj" Id="d91af09b-5974-4bb1-9335-8c519a84bc79" />
