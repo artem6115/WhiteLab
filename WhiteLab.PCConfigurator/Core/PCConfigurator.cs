@@ -69,7 +69,7 @@ public class PCConfigurator
 
 
         ];
-        if (container.Gpus.Any()) pc.Components.Insert(0, new PCConfig.PCComponent(container.Gpus[0], string.Join(',', container.Gpus.Take(3).SelectMany(m => m.Models.Select(mm => $"{m.Seria} {mm}"))), container.GpusInfo));
+        if (container.Gpus.Any()) pc.Components.Insert(0, new PCConfig.PCComponent(container.Gpus[0], string.Join(',', container.Gpus.Take(3).SelectMany(m => m.Models.Take(3).Select(mm => $"{m.Seria} {mm}"))).Replace(",", ", "), container.GpusInfo));
 
         return pc;
     }

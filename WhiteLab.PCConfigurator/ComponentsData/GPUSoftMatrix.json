@@ -3684,11 +3684,11 @@
       }
     },
     "programm_alias": {
-      "Valorant": [ "valorant", "валorant","волорант","валорант" ],
+      "Valorant": [ "valorant", "валorant", "волорант", "валорант" ],
       "Counter_Strike_2": [ "counter_strike_2", "cs2", "cs_2", "контр_страйк_2", "кс_2", "cs", "кс2", "кс", "контра", "контр_страйк", "counter_strike" ],
-      "Atomic_Heart": [ "atomic_heart", "атомик_харт", "атомное_сердце", "атомик"],
+      "Atomic_Heart": [ "atomic_heart", "атомик_харт", "атомное_сердце", "атомик" ],
       "Warface": [ "warface", "варфейс" ],
-      "Dota_2": [ "dota_2", "dota", "дота_2", "дота","dota2","дота2" ],
+      "Dota_2": [ "dota_2", "dota", "дота_2", "дота", "dota2", "дота2" ],
       "PUBG": [ "pubg", "пабг", "pubg_battlegrounds" ],
       "Escape_From_Tarkov": [ "escape_from_tarkov", "tarkov", "тарков", "улицы_таркова", "побег_из_таркова" ],
       "Minecraft": [ "minecraft", "mine", "майнкрафт", "майн" ],
@@ -3696,7 +3696,7 @@
       "The_Witcher_3": [ "witcher_3", "the_witcher_3", "ведьмак_3", "witcher", "ведьмак", "witcher3", "ведьмак3" ],
       "Cyberpunk_2077": [ "cyberpunk_2077", "cyberpunk", "киберпанк_2077", "киберпанк" ],
       "World_of_Tanks": [ "world_of_tanks", "wot", "мир_танков", "танки" ],
-      "GTA_V": [ "gta_v", "gta5", "gta_5", "гта_5", "гта_v","gta","гта" ],
+      "GTA_V": [ "gta_v", "gta5", "gta_5", "гта_5", "гта_v", "gta", "гта" ],
       "Call_of_Duty_Warzone": [ "warzone", "call_of_duty_warzone", "варзон", "колл_оф_дути", "call_of_duty" ],
       "Apex_Legends": [ "apex_legends", "apex", "апекс_легенды" ],
       "Elden_Ring": [ "elden_ring", "elden", "эльден_ринг", "эльден" ],
@@ -3705,23 +3705,23 @@
       "Roblox": [ "roblox", "роблокс" ],
       "Rocket_League": [ "rocket_league", "ракета_лига" ],
       "Baldurs_Gate_3": [ "baldurs_gate_3", "bg3", "балдурс_гейт_3", "бг3" ],
-      "Hogwarts_Legacy": [ "hogwarts_legacy", "хогвартс_легаси", "хогвартс","гарри","гарри_поттер" ],
+      "Hogwarts_Legacy": [ "hogwarts_legacy", "хогвартс_легаси", "хогвартс", "гарри", "гарри_поттер" ],
       "Resident_Evil_4_Remake": [ "resident_evil_4", "re4", "resident_evil_4_remake", "обитель_зла_4", "обитель_зла", "resident_evil", "resident", "resident_4", "resident4", "резидент", "резидент4", "резидент_4" ],
       "God_of_War": [ "god_of_war", "gow", "бог_войны", "боги_войны" ],
       "Red_Dead_Redemption_2": [ "rdr2", "red_dead_redemption_2", "red_dead_2", "смертельная_погоня_2", "смертельная_погоня2", "смертельная_погоня", "рдр2", "рдр_2", "red_dead_redemption", "red_dead" ],
       "Divinity_Original_Sin_2": [ "divinity_original_sin_2", "dos2", "дивинити", "дивинити2", "дивинити_2", "divinity_original", "divinity", "dos_2", "divinity2", "divinity_2" ],
-      "DOOM_Eternal": [ "doom_eternal", "doom", "дум_вечный","дум","доом" ],
+      "DOOM_Eternal": [ "doom_eternal", "doom", "дум_вечный", "дум", "доом" ],
       "Unity": [ "unity", "unity_engine", "unity_editor" ],
       "Unreal_Engine": [ "unreal_engine", "unreal", "ue5", "ue4", "анриал" ],
       "Adobe_Photoshop": [ "photoshop", "ps", "фотошоп", "adobe_photoshop" ],
       "Adobe_Illustrator": [ "illustrator", "ai", "иллюстратор" ],
       "Blender": [ "blender", "блендер" ],
-      "FL_Studio": [ "fl_studio", "fl", "fruity_loops","фл","фл_студия" ],
+      "FL_Studio": [ "fl_studio", "fl", "fruity_loops", "фл", "фл_студия" ],
       "DaVinci_Resolve": [ "davinci_resolve", "davinci", "resolve" ],
       "Ableton_Live": [ "ableton_live", "ableton" ],
       "Cinema_4D": [ "cinema_4d", "c4d" ],
       "Adobe_After_Effects": [ "after_effects", "ae" ],
-      "Adobe_Premiere_Pro": [ "premiere_pro", "premiere", "премьер_про" , "премьер" ],
+      "Adobe_Premiere_Pro": [ "premiere_pro", "premiere", "премьер_про", "премьер" ],
       "Autodesk_Maya": [ "maya", "autodesk_maya" ],
       "Houdini": [ "houdini", "sidefx_houdini" ]
     },
@@ -3781,12 +3781,13 @@
       "RTX 4090 24GB": 6,
       "RTX 5090 32GB": 6
     },
-    "gpu_alternative": {
-      "RTX 3060": [ "RTX 3060", "RTX 5050" ],
-      "RTX 4060": [ "RTX 4060", "RTX 5060" ],
-      "RTX 3060 Ti 8GB": [ "RTX 3060 Ti 8GB", "RTX 5060 Ti 8GB" ],
-      "RTX 3070": [ "RTX 3070", "RTX 5060 Ti 16GB" ],
-      "RTX 4080 16GB": [ "RTX 4080 Super 16GB" ]
+    "gpu_alternative" :
+    {
+      "rtx 3060 12gb": [ "rtx 3060 12gb", "rtx 5050 8gb" ],
+      "rtx 4060 8gb": [ "rtx 4060 8gb", "rtx 5060 8gb" ],
+      "rtx 3060 ti 8gb": [ "rtx 3060 ti 8gb", "rtx 5060 ti 8gb" ],
+      "rtx 3070 8gb": [ "rtx 3070 8gb", "rtx 5060 ti 16gb" ],
+      "rtx 4080 16gb": [ "rtx 4080 super 16gb" ]
     }
   }
 }

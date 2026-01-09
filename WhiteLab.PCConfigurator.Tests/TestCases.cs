@@ -84,7 +84,19 @@ namespace WhiteLab.PCConfigurator.Tests
             },
             ];
 
-            foreach (var r in reqs.Skip(reqs.Length-1)) yield return r;
+            foreach (var r in reqs) yield return r;
+        }
+
+        internal static IEnumerable GetReleaseRequirements()
+        {
+            (Requirements req, List<string> components)[] testCases = 
+            [
+                
+                
+            ];
+
+
+            foreach (var t in testCases) yield return t;
         }
     }
 }

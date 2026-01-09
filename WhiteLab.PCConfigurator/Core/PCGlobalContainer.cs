@@ -30,20 +30,6 @@ internal static class PCGlobalContainer
         return _relationships!;
     }
 
-    public static string? GetNormilizeName(string alias)
-    {
-        GetRelationShipsAsync(default).GetAwaiter().GetResult();
-        alias = alias.Replace(' ', '_').ToLower().Trim();
-        var programs = _relationships!.GPUSoftMatrix["programm_alias"];
-        foreach (var program in programs!.AsObject())
-        {
-            var aliass = program.Value!.AsArray().Select(v => v!.GetValue<string>());
-            if (aliass.Contains(alias)) return program.Key;
-        }
-
-        return null;
-    }
-
     private async static ValueTask RefreshContainerAsync(CancellationToken ct)
     {
         try

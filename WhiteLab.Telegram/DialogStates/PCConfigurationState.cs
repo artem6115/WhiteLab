@@ -33,8 +33,27 @@ internal class PCConfigurationState : IDialogState
 
     public async Task SendPage(ITelegramBotClient client, UserData user, CancellationToken ct)
     {
-        var id = (await client.SendMessage(user.ChatId, $"Сборка готова ✅{Environment.NewLine}{user.PCAssembly!.Price}", ParseMode.Html, replyMarkup:  DefaultState.GetButtonsKeyboard(), cancellationToken: ct)).Id;
-        await client.EditMessageText(user.ChatId, id, $"Сборка готова ✅{Environment.NewLine}{user.PCAssembly!.Price}", ParseMode.Html, replyMarkup: GetInlineButtons(), cancellationToken: ct);
+        await client.SendMessage(user.ChatId, $"Сборка Успешно создана! ✅{Environment.NewLine}{user.PCAssembly!.Price}", ParseMode.Html, replyMarkup: DefaultState.GetButtonsKeyboard(), cancellationToken: ct);
+
+        var n = Environment.NewLine;
+        var msg = new TelegramStringBuilder();
+        msg
+            .AddBoldStrHtml($"Итоговая стоимость: {user.PCAssembly!.Price}₽{n}")
+            .AddLineStr()
+            .AddItalicStrHtml("Итоговые комплектующие:" + n);
+        foreach (var c in user.PCAssembly!.Components)
+        {
+            msg
+                .AddBoldStrHtml(c.Type + n)
+                .AddLineStr("✳" + c.Name)
+                .AddLineStr($"Стоимость: {c.Price}₽")
+                .AddLineStr(c.Description ?? "");
+            if(c.SimilarModels != null && c.SimilarModels.Any()) 
+                msg.AddLineStr($"Схожие модели: {c.SimilarModels}{n}");
+        }
+
+        var inputPhoto = new InputFileUrl("https://img.pikbest.com/wp/202405/illuminated-neon-pink-computer-in-3d-rendering_9826613.jpg!f305cw");
+        await client.SendPhoto(user.ChatId, inputPhoto, caption: msg.ToString(), parseMode: ParseMode.Html, replyMarkup: GetInlineButtons(), cancellationToken: ct);
     }
 
     private InlineKeyboardMarkup GetInlineButtons()
