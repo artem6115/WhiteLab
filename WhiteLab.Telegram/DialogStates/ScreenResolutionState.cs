@@ -18,7 +18,7 @@ internal class ScreenResolutionState : IDialogState
         message.Text = message.Text.Replace("2K", "2000").Replace("4K","4000");
         if (message.Text.Contains("Назад"))
         {
-            user.CurrentState = user.PreviewState ?? new MainState();
+            user.CurrentState = user.GoBack();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
@@ -30,7 +30,7 @@ internal class ScreenResolutionState : IDialogState
         }
 
         user.Requirements?.ScreenResolution = ushort.Parse(message.Text);
-        user.PreviewState = this;
+        user.PreviewStates.Push(this);
         user.CurrentState = new GraphicsLevelState();
         await user.CurrentState.SendPage(client, user, ct);
     }

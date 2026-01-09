@@ -19,14 +19,14 @@ internal class SelectProgramsState : IDialogState
 
         if (message.Text.Contains("Назад"))
         {
-            user.CurrentState = user.PreviewState ?? new MainState();
+            user.CurrentState = user.GoBack();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
 
         if (message.Text.Contains("Пропустить"))
         {
-            user.PreviewState = this;
+            user.PreviewStates.Push(this);
             user.CurrentState = new OverclockingSupportState();
             await user.CurrentState.SendPage(client, user, ct);
             return;
@@ -39,7 +39,7 @@ internal class SelectProgramsState : IDialogState
             await client.SendMessage(user.ChatId, $"Будут учтены программы:{Environment.NewLine}{string.Join(Environment.NewLine, programsNorm)}", cancellationToken: ct);
             await Task.Delay(2000);
         }
-        user.PreviewState = this;
+        user.PreviewStates.Push(this);
         user.CurrentState = new OverclockingSupportState();
         await user.CurrentState.SendPage(client, user, ct);
     }

@@ -16,7 +16,7 @@ internal class ExistPGUState : IDialogState
 
         if (message.Text.Contains("Назад"))
         {
-            user.CurrentState = user.PreviewState ?? new MainState();
+            user.CurrentState = user.GoBack();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
@@ -28,7 +28,7 @@ internal class ExistPGUState : IDialogState
         }
 
         user.Requirements!.ExcludeGpu = message.Text == "Нет";
-        user.PreviewState = this;
+        user.PreviewStates.Push(this);
 
         if (user.Requirements!.ExcludeGpu) user.CurrentState = new WorkTirState();
         else user.CurrentState = new ScreenResolutionState();

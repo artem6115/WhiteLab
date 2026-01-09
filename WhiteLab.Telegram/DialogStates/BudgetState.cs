@@ -21,7 +21,7 @@ internal class BudgetState : IDialogState
         }
         else if(message.Text.Contains("Назад"))
         {
-            user.CurrentState = user.PreviewState ?? new MainState();
+            user.CurrentState = user.GoBack();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
@@ -33,7 +33,7 @@ internal class BudgetState : IDialogState
         }
 
         user.Requirements = new PCConfigurator.Requirenments.Requirements() { Budget = badget };
-        user.PreviewState = this;
+        user.PreviewStates.Push(this);
         user.CurrentState = new ExistPGUState();
         await user.CurrentState.SendPage(client, user, ct);
     }

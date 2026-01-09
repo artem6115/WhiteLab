@@ -18,7 +18,7 @@ internal class BuildPcConfigtState : IDialogState
         message.Text ??= "";
         if (message.Text.Contains("К предыдущему вопросу"))
         {
-            user.CurrentState = user.PreviewState ?? new MainState();
+            user.CurrentState = user.GoBack();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
@@ -41,7 +41,7 @@ internal class BuildPcConfigtState : IDialogState
         {
             user.PCAssembly = cnfResult.Config;
             user.CurrentState = new PCConfigurationState();
-            user.PreviewState = null;
+            user.PreviewStates.Clear();
             await user.CurrentState.SendPage(client, user, ct);
         }
         else

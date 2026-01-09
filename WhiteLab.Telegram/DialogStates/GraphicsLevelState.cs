@@ -18,7 +18,7 @@ internal class GraphicsLevelState : IDialogState
         message.Text ??= "";
         if (message.Text.Contains("Назад"))
         {
-            user.CurrentState = user.PreviewState ?? new MainState();
+            user.CurrentState = user.GoBack();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
@@ -30,7 +30,7 @@ internal class GraphicsLevelState : IDialogState
         }
 
         user.Requirements?.GraphicsLevel = (GraphicsLevelEnum)Enum.Parse(typeof(GraphicsLevelEnum), message.Text);
-        user.PreviewState = this;
+        user.PreviewStates.Push(this);
         user.CurrentState = new WorkTirState();
         await user.CurrentState.SendPage(client, user, ct);
     }

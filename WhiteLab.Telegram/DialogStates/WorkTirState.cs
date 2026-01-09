@@ -20,7 +20,7 @@ internal class WorkTirState : IDialogState
 
         if (message.Text.Contains("Назад"))
         {
-            user.CurrentState = user.PreviewState ?? new MainState();
+            user.CurrentState = user.GoBack();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
@@ -33,7 +33,7 @@ internal class WorkTirState : IDialogState
         }
 
         user.Requirements!.PowerLevel = (PowerLevelEnum)result;
-        user.PreviewState = this;
+        user.PreviewStates.Push(this);
         user.CurrentState = new SelectProgramsState();
         await user.CurrentState.SendPage(client, user, ct);
     }

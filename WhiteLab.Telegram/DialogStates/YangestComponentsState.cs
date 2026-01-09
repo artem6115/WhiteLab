@@ -18,7 +18,7 @@ internal class YangestComponentsState : IDialogState
 
         if (message.Text.Contains("Назад"))
         {
-            user.CurrentState = user.PreviewState ?? new MainState();
+            user.CurrentState = user.GoBack();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
@@ -30,7 +30,7 @@ internal class YangestComponentsState : IDialogState
         }
 
         user.Requirements!.YangestComponents = message.Text == "Да";
-        user.PreviewState = this;
+        user.PreviewStates.Push(this);
         user.CurrentState = new BuildPcConfigtState();
         await user.CurrentState.SendPage(client, user, ct);
     }

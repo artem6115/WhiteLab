@@ -13,13 +13,13 @@ internal class PCConfigurationState : IDialogState
         switch (callback.Data)
         {
             case "new asm":
-                user.PreviewState = null;
+                user.PreviewStates.Clear();
                 user.PCAssembly = null;
                 user.CurrentState = new BudgetState();
                 await user.CurrentState.SendPage(client, user, ct);
                 break;
             case "back":
-                user.PreviewState = null;
+                user.PreviewStates.Clear();
                 user.CurrentState = new MainState();
                 await user.CurrentState.SendPage(client, user, ct);
                 break;

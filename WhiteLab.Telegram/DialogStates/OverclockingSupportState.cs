@@ -16,7 +16,7 @@ internal class OverclockingSupportState : IDialogState
         message.Text ??= "";
         if (message.Text.Contains("Назад"))
         {
-            user.CurrentState = user.PreviewState ?? new MainState();
+            user.CurrentState = user.GoBack();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
@@ -30,7 +30,7 @@ internal class OverclockingSupportState : IDialogState
         };
 
         user.Requirements!.OverclockingSupport = result;
-        user.PreviewState = this;
+        user.PreviewStates.Push(this);
         user.CurrentState = new YangestComponentsState();
         await user.CurrentState.SendPage(client, user, ct);
     }

@@ -16,7 +16,7 @@ internal class MainState : IDialogState
         switch (callback.Data)
         {
             case "my asm":
-                user.PreviewState = this;
+                user.PreviewStates.Push(this);
                 if (user.PCAssembly == null) user.CurrentState = new BudgetState();
                 else user.CurrentState = new PCConfigurationState();
                 await user.CurrentState.SendPage(client, user, ct);
@@ -82,7 +82,7 @@ internal class MainState : IDialogState
                 await client.SendMessage(user.ChatId, msg.ToString(), ParseMode.Html, replyMarkup: DefaultState.GetButtonsKeyboard(), cancellationToken: ct);
                 break;
             case "bots":
-                user.PreviewState = this;
+                user.PreviewStates.Push(this);
                 user.CurrentState = new BotsListState();
                 await user.CurrentState.SendPage(client, user, ct);
                 break;
