@@ -12,10 +12,12 @@ internal class TelegramRecipient : IUpdateHandler
     {
         await Task.Yield();
         Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(exception.Source);
+        Console.WriteLine(exception.ToString());
+        Console.WriteLine(exception.StackTrace);
         Console.WriteLine(exception.Message);
-        Console.WriteLine("Inner: " + exception.InnerException?.Message ?? "");
+        Console.WriteLine("Inner: " + exception.InnerException?.Message ?? "NULL");
         Console.ResetColor();
-
     }
 
     public async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken ct)

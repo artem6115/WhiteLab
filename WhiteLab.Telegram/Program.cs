@@ -8,7 +8,7 @@ namespace WhiteLab.Bot;
 
 internal class Program
 {
-    static void Main(string[] args)
+    static int Main(string[] args)
     {
         var source = new CancellationTokenSource();
         Console.CancelKeyPress += (s, o) => Exit(source);
@@ -27,18 +27,29 @@ internal class Program
     {
         token = Environment.GetEnvironmentVariables()["token"]?.ToString();
     }
+    if(token == null && args.Length > 0)
+    {
+        token = args[0].Split("=").Last();
+    }
 #endif
 
         if (string.IsNullOrWhiteSpace(token))
         {
             throw new ArgumentException("Telegram token wasn`t given");
         }
+
+        token = token.
+             Trim()                                    // Пробелы по краям
+            .Replace("\uFEFF", "")                     // BOM  
+            .Replace("\u200B", "")                     // Zero-Width Space
+            .Replace("\r", "").Replace("\n", "");      // Лишние переносы
         TelegramOptions.Token = token;
         var opt = new ReceiverOptions() { AllowedUpdates = [UpdateType.CallbackQuery, UpdateType.Message] };
         var bot = new TelegramBotClient(token);
         bot.StartReceiving<TelegramRecipient>(opt, source.Token);
         Console.WriteLine("Start bot");
         Console.ReadLine();
+        return 0;
     }
 
     private static void Exit(CancellationTokenSource source)
