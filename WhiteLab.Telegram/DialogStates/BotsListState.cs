@@ -28,16 +28,17 @@ internal class BotsListState : IDialogState
     {
         var msg = new TelegramStringBuilder();
         msg
-            .AddBoldStrHtml("PCConfigurator - Бот для сборки и заказа пк")
+            .AddBoldStrHtml("PCConfigurator — Бот для сборки и заказа ПК")
             .AddLineStr()
             .AddLineStr()
-            .AddBoldStrHtml("CPUOverclocker - Бот который поможет разогнать любой процессор, содержит в себе ряд инструкций для различных моделей")
+            .AddBoldStrHtml("CPUOverclocker — Бот, который поможет разогнать любой процессор. Содержит инструкции для различных моделей")
             .AddLineStr()
             .AddLineStr()
-            .AddBoldStrHtml("RAMOverclocker - Бот который поможет разогнать оперативную память, содержит в себе ряд различных инструкций в зависимости от материнской платы и др параметров.")
+            .AddBoldStrHtml("RAMOverclocker — Бот для разгона оперативной памяти. Содержит инструкции в зависимости от материнской платы и параметров")
             .AddLineStr()
             .AddLineStr()
-            .AddBoldStrHtml("GPUOverclocker - Бот который поможет разогнать видеокарты с помощью программы, содержит в себе ряд инструкций для достижения максимума по видеокарте");
+            .AddBoldStrHtml("GPUOverclocker — Бот для разгона видеокарт. Содержит инструкции для достижения максимальной производительности видеокарты");
+
         user.LastMessageId = (await client.SendMessage(user.ChatId, msg.ToString(), ParseMode.Html, replyMarkup: GetInlineKeyboardButton(), cancellationToken: ct)).Id;
         
     }

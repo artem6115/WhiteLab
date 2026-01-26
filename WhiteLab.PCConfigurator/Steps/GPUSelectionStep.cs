@@ -30,36 +30,30 @@ internal class GPUSelectionStep : IStep
             .Select(m => m!.GetValue<string>().ToLower().Trim())
             .ToList(); //список видеокарт по мощности
 
-        var a = _relationships.GPUTirMatrix.AsArray()
+        var tirOptModels = _relationships.GPUTirMatrix.AsArray()
             .Where(o => o?["resolution"]?.GetValue<string>() == _requirements.ScreenResolution.ToString()).ToList()
             .Where(o => o?["settings"]?.GetValue<string>() == _requirements.GraphicsLevel.ToString()).ToList()
-            .FirstOrDefault()?["models"]?.AsArray().Select(r => r!.GetValue<string>());
-        var b = a
-            .Select(GetModelAndRam);
-        var c = b
-            .Select(GetGPUTirForSoft);
-        var tirOptModels = c
+            .FirstOrDefault()?["models"]?.AsArray().Select(r => r!.GetValue<string>())
+            .Select(GetModelAndRam)
+            .Select(GetGPUTirForSoft)
             .SelectMany(ApplayAlternativeGPU)
             .ToArray() ?? [];
 
-        var a2 = _requirements.Programs
+        var softOptModels = _requirements.Programs
             .Select(GetNormilizeName)
-            .Where(p => p is not null);
-        var b2 = a2
+            .Where(p => p is not null)
             .Select(p =>
                 _relationships.GPUSoftMatrix["applications"]
                 ?[p!]
                 ?["resolutions"]
                 ?[_requirements.ScreenResolution.ToString()]
-                ?[_requirements.GraphicsLevel.ToString()]);
-        var c2 = b2
-            .Select(n => $"{n!["recommended_gpu"]!.GetValue<string>()} {n!["vram"]!.GetValue<string>()}");
-        var d2 = c2
-            .Select(GetModelAndRam);
-        var i2 = d2
-            .Select(GetGPUTirForSoft);
-        var softOptModels = i2.SelectMany(ApplayAlternativeGPU)
+                ?[_requirements.GraphicsLevel.ToString()])
+            .Select(n => $"{n!["recommended_gpu"]!.GetValue<string>()} {n!["vram"]!.GetValue<string>()}")
+            .Select(GetModelAndRam)
+            .Select(GetGPUTirForSoft)
+            .SelectMany(ApplayAlternativeGPU)
             .ToArray() ?? [];
+
         var powerLvl = Math.Max(tirOptModels.Min(m => m.Power), (softOptModels.Length > 0) ? softOptModels.Max(m => m.Power) : 0);
         int ramLevel = (softOptModels.Length > 0) ? softOptModels.Max(m => m.RAM) : tirOptModels.Min(m => m.RAM);
         var resultModels = softOptModels.Where(m => m.Power >= powerLvl)
@@ -67,20 +61,20 @@ internal class GPUSelectionStep : IStep
                 .Where(m => m.RAM >= ramLevel)
                 .ToList();
 
-        var selectedTopModel = _gpusSorted
-            .Skip(powerLvl).Where(m => int.Parse(m.Split(' ').Last().Replace("gb","")) > ramLevel)
+        var selectedTopModels = _gpusSorted
+            .Skip(powerLvl).Where(m => int.Parse(m.Split(' ').Last().Replace("gb", "")) >= ramLevel)
             .Where(m => !_requirements.YangestComponents || m.StartsWith("rtx 5"))
-            .FirstOrDefault();          
-        if (selectedTopModel == null)
+            .OrderBy(m => _gpusSorted.IndexOf(m))
+            .Select(GetModelAndRam)
+            .Select(GetGPUTirForSoft)
+            .Take(5);        
+        if (selectedTopModels == null || !selectedTopModels.Any())
         {
             _container.Gpus = new();
             return;
         }
 
-        var modelSplit = GetModelAndRam(selectedTopModel);
-        resultModels.Add((modelSplit.Model, modelSplit.RAM, _gpusSorted.IndexOf(selectedTopModel)));
-
-
+        resultModels.AddRange(selectedTopModels);
         _setupGpus = _container.Gpus.Where(g => resultModels.Where(m => string.Equals(m.Seria, g.Seria, StringComparison.InvariantCultureIgnoreCase) && g.RAM >= m.RAM).Any())
             .Where(WhereFormFactorAndGPUWidth)
             .ToList();
@@ -168,7 +162,7 @@ internal class GPUSelectionStep : IStep
         }
 
         _container.Gpus = gpus.OrderBy(g => g.Price).ToList();
-        return _container.Gpus.Any() && _container.CalculatePrice() <= _requirements.Budget * 0.55;
+        return _container.Gpus.Any();
     }
 
     private (string Model, int RAM) GetModelAndRam(string name)

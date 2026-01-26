@@ -18,7 +18,7 @@ public class UserData
     public object? Buffer { get; set; }
     public Requirements? Requirements { get; set; }
     public PCConfig? PCAssembly { get; set; }
-    public string? OrdrStatus { get; set; } 
+    public string? OrderStatus { get; set; } 
 
     public IDialogState GoBack() => PreviewStates.Any() ? PreviewStates.Pop() : new MainState();
 }

@@ -70,7 +70,7 @@ internal class MotherboardSelectionStep : IStep
         }
 
         _container.Motherboards = motherboards.OrderBy(m => m.Price).ToList();
-        return _container.Motherboards.Any() && _container.CalculatePrice() <= _requirements.Budget;
+        return _container.Motherboards.Any();
 
     }
 

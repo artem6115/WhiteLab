@@ -9,6 +9,7 @@ public class PCConfigurator
     {
         var container = await PCGlobalContainer.GetContainerAsync(ct);
         var relationships = await PCGlobalContainer.GetRelationShipsAsync(ct);
+        var budget = requirements.Budget * 1.5;
 
         List<IStep> steps = [
             new CPUSelectionStep(requirements, container, relationships),
@@ -27,16 +28,16 @@ public class PCConfigurator
             for (int i = 0; i <= step.MaxCheapLevel; i++)
             {
                 var r = step.FilterAndCheap(i);
-                if (!r) continue;
+                if (!r || container.CalculatePrice() > budget) continue;
                 r &= Filtering(stepIndex + 1);
-                if (r) return true;
+                if (r && container.CalculatePrice() <= budget) return true;
             }
             step.ClearContainer();
             return false;
         }
         
         var resultCnf = Filtering();
-        if (!container.IsComposed(requirements.ExcludeGpu) && container.CalculatePrice() > requirements.Budget) return PCConfigResult.Set(null, "По заданым требования не удалось подобрать комплектующие");
+        if (!container.IsComposed(requirements.ExcludeGpu) || container.CalculatePrice() > budget) return PCConfigResult.Set(null, "По заданым требования не удалось подобрать комплектующие");
         var result = resultCnf ? CreatePCConfig(container) : null;
         return PCConfigResult.Set(result, "Бюджета не хватило сборку пк удовлетворяющего только системным требованиям");
     }

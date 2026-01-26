@@ -12,6 +12,7 @@ internal class CPUSelectionStep : IStep
     private readonly ComponentRelationships _relationships;
     private List<CPU> _setupCpus;
     private int _tir;
+    private string _stepsCount;
 
     public CPUSelectionStep(Requirements requirements, PCContainer container, ComponentRelationships relationships)
     {
@@ -75,7 +76,7 @@ internal class CPUSelectionStep : IStep
         }
 
         _container.Cpus = cpus.OrderBy(g => g.Price).ToList();
-        return _container.Cpus.Any() && _container.CalculatePrice() <= _requirements.Budget;
+        return _container.Cpus.Any();
 
     }
 

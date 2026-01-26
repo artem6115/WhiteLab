@@ -48,6 +48,4 @@ public class CPUTests
             Console.WriteLine($"{component.Description}");
         }
     }
-
-    //test RTX 3070 find alternative gpu
 }

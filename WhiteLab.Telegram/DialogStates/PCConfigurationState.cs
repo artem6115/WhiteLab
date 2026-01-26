@@ -33,10 +33,19 @@ internal class PCConfigurationState : IDialogState
 
     public async Task SendPage(ITelegramBotClient client, UserData user, CancellationToken ct)
     {
-        await client.SendMessage(user.ChatId, $"Сборка Успешно создана! ✅{Environment.NewLine}{user.PCAssembly!.Price}", ParseMode.Html, replyMarkup: DefaultState.GetButtonsKeyboard(), cancellationToken: ct);
-
+        
+        
         var n = Environment.NewLine;
         var msg = new TelegramStringBuilder();
+        if(user.PCAssembly!.Price <= user.Requirements!.Budget)
+        {
+            await client.SendMessage(user.ChatId, $"Сборка успешно создана! ✅{Environment.NewLine}Итоговая стоимость: {user.PCAssembly!.Price}₽", ParseMode.Html, replyMarkup: DefaultState.GetButtonsKeyboard(), cancellationToken: ct);
+        }
+        else
+        {
+            await client.SendMessage(user.ChatId, $"Не удалось создать сборку в рамках заданного бюджета ❌{Environment.NewLine}Подобрал минимальную сборку по указанным требованиям: {user.PCAssembly!.Price}₽", ParseMode.Html, replyMarkup: DefaultState.GetButtonsKeyboard(), cancellationToken: ct);
+        }
+
         msg
             .AddBoldStrHtml($"Итоговая стоимость: {user.PCAssembly!.Price}₽{n}")
             .AddLineStr()

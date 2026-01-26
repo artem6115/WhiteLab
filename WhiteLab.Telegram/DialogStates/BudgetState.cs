@@ -25,13 +25,35 @@ internal class BudgetState : IDialogState
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
+        var usaVal = message.Text.Contains("$") || message.Text.Contains("долларов") || message.Text.Contains("dolors");
+        var parsed = message.Text
+            .ToLower()
+            .Replace("k", "000")
+            .Replace("m", "000000")
+            .Replace("к", "000")
+            .Replace("м", "000000")
+            .Replace("thousand", "000")
+            .Replace("тысяч", "000")
+            .Replace("тыс", "000")
+            .Replace("тыщ", "000")
+            .Replace("₽", "")
+            .Replace("руб", "")
+            .Replace("рублей", "")
+            .Replace("$", "")
+            .Replace("долларов", "")
+            .Replace("dolors", "")
+            .Split([' ', '.', ',', '-'])
+            .Where(s => !string.IsNullOrWhiteSpace(s));
 
-        if (!uint.TryParse(message.Text.Trim(), out var badget))
+        var bgText = string.Join("", parsed);
+
+        if (!uint.TryParse(bgText, out var badget))
         {
             await client.SendMessage(user.ChatId, "Пожалуйста отправьте число или нажмине на кнопку", ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct);
             return;
         }
-
+        if (usaVal) badget *= 75;
+        await client.SendMessage(user.ChatId, $"Бюджет: {badget}₽", cancellationToken: ct);
         user.Requirements = new PCConfigurator.Requirenments.Requirements() { Budget = badget };
         user.PreviewStates.Push(this);
         user.CurrentState = new ExistPGUState();
@@ -46,7 +68,7 @@ internal class BudgetState : IDialogState
             .AddLineStr()
             .AddBoldStrHtml("Отлично, приступим к созданию сборки \U0001F5A5")
             .AddLineStr()
-            .AddLineStr("Для начала определимся с бюджетом, напишите примерную сумму (пример: 120000) или нажмите кнопку без ограничений, программы подберёт оптимальную сборку по требованиям и скажет стоимость");
+            .AddLineStr("Для начала определимся с бюджетом. Напишите примерную сумму (пример: 120 000) или нажмите кнопку 'Без ограничений' — программа подберёт оптимальную сборку по требованиям и назовёт стоимость");
 
         var messageId = (await client.SendMessage(user.ChatId, str.ToString(), ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct)).Id;
         user.LastMessageId = messageId;

@@ -29,19 +29,26 @@ internal class MainState : IDialogState
                 break;
             case "about me":
                 msg
-                    .AddLineStr("Меня зовут Артём")
+                    .AddLineStr("Меня зовут Артём — программист и сборщик ПК из Челябинска.")
                     .AddLineStr()
-                    .AddLineStr("Я работаю программистом и занимаюсь сборкой и настройкой ПК в городе Челябинск")
-                    .AddStr("Делаю качественные, ").AddItalicStrHtml("чистые")
-                    .AddLineStr(" сборки")
-                    .AddLineStr("Для всех сборок которые я делаю, я предоставляю тесты всех компонентов");
+                    .AddStr("Специализируюсь на белых, ").AddItalicStrHtml("чистых ")
+                    .AddLineStr("сборках с гарантией качества:")
+                    .AddLineStr("✅ Закуп комплектующих в ДНС с чеком и заводской гарантией")
+                    .AddLineStr("✅ 30 дней бесплатной диагностики готовой системы")
+                    .AddLineStr("✅ Полные тесты всех компонентов (AIDA64, FurMark, CrystalDiskMark+)")
+                    .AddLineStr("✅ Бесплатная доставка по Челябинску и Копейску")
+                    .AddLineStr()
+                    .AddLineStr("Разработал PCConfigurator — Telegram-бота для точного подбора комплектующих под бюджет и задачи. Автоматизирую подбор, но каждый ПК собираю вручную.")
+                    .AddLineStr()
+                    .AddLineStr("Сборка под ключ = ваша мечта + моя экспертиза");
+
                 await client.SendMessage(user.ChatId, msg.ToString(), ParseMode.Html, cancellationToken: ct);
                 break;
             case "buy instruction":
                 msg
-                    .AddLineStr("Если вы не ещё не подобрали комплектующие, можете воспользоваться пощью бота или же подобрать сразу со сборщиком")
-                    .AddLineStr("После подбора комплектующих, напшите сборщику, отправьте список комплектующих, сборщик проверит на совместимость и напишет точную стоимость и сроки.")
-                    .AddLineStr("Отслеживать процесс закупа компонентов, сборки и отправки можно прямо в боте, в главном меню");
+                    .AddLineStr("Если вы ещё не подобрали комплектующие, можете воспользоваться помощью бота или сразу обратиться к сборщику")
+                    .AddLineStr("После подбора комплектующих напишите сборщику, отправьте список — он проверит совместимость, точную стоимость и сроки")
+                    .AddLineStr("Отслеживать процесс закупки компонентов, сборки и отправки можно прямо в боте, в главном меню");
                 await client.SendMessage(user.ChatId, msg.ToString(), cancellationToken: ct);
                 break;
             case "cans list":
@@ -55,7 +62,7 @@ internal class MainState : IDialogState
                     .AddLineStr("✳ Установка/Переустановка Windows")
                     .AddLineStr("✳ Очистка Windows")
                     .AddLineStr("✳ Разгон ПК")
-                    .AddLineStr("✳ Упграде ПК")
+                    .AddLineStr("✳ Апгрейд ПК")
                     .AddLineStr("✳ Поиск и удаление вирусов");
                 await client.SendMessage(user.ChatId, msg.ToString(), ParseMode.Html, cancellationToken: ct);
                 break;
@@ -66,18 +73,18 @@ internal class MainState : IDialogState
             case "about whitelab":
                 msg = new TelegramStringBuilder();
                 msg
-                    .AddLineStr("\u2744 WhiteLab — лаборатория белых сборок")
+                    .AddLineStr("❄ WhiteLab — лаборатория белых сборок")
                     .AddLineStr()
-                    .AddLineStr("Мы занимаемс закупом и сборкой комплектующих пк, в основном орентир на сборку белых пк (но не только)")
-                    .AddLineStr("Закуп комплектующих в ДНС, с предоставлением гарантии из магазина")
+                    .AddLineStr("Мы занимаемся закупом и сборкой комплектующих ПК, в основном ориентир на сборку белых ПК (но не только).")
+                    .AddLineStr("Закуп комплектующих в ДНС с предоставлением гарантии из магазина.")
                     .AddBoldStrHtml("Гарантии: ")
                     .AddLineStr()
                     .AddLineStr("  ✅ гарантия комплектующих по чекам из ДНС")
-                    .AddLineStr("  ✅ 30 дней бесплатной диагностики, при наличии проблем с компьютером")
-                    .AddLineStr("  ✅ предоставление результатов тестов перед передачей сбораного пк (AIDA64, FurMark, CrystalDisk и др)")
+                    .AddLineStr("  ✅ 30 дней бесплатной диагностики при наличии проблем с компьютером")
+                    .AddLineStr("  ✅ предоставление результатов тестов перед передачей собранного ПК (AIDA64, FurMark, CrystalDisk и др.)")
                     .AddLineStr()
-                    .AddLineStr("Доставляем бесплатно самостоятельно клиенту в городе Челябинск, Копейск")
-                    .AddLineStr("В другие города есть возможность отправки с помощью авито доставки");
+                    .AddLineStr("Бесплатно доставим ПК клиенту в Челябинск, Копейск.")
+                    .AddLineStr("В другие города есть возможность отправки с помощью Авито Доставки");
 
                 await client.SendMessage(user.ChatId, msg.ToString(), ParseMode.Html, replyMarkup: DefaultState.GetButtonsKeyboard(), cancellationToken: ct);
                 break;
@@ -104,47 +111,19 @@ internal class MainState : IDialogState
             .AddItalicStrHtml("Главное меню PCConfigurator \U0001F4F1")
             .AddLineStr("------------------------------------")
             .AddBoldStrHtml(" \U0001F5A5 Ваша сборка: ")
-            .AddBoldStrHtml(user.PCAssembly?.Price.ToString() ?? "")
+            .AddBoldStrHtml((user.PCAssembly?.Price.ToString() ?? "0" + "₽"))
             .AddLineStr()
             .AddBoldStrHtml("\U0001F6D2 Заказы : ")
-            .AddBoldStrHtml(user.OrdrStatus ?? "")
+            .AddBoldStrHtml(user.OrderStatus ?? "")
             .AddLineStr()
             .AddLineStr("------------------------------------")
             .AddLineStr()
-            .AddLineStr("Для управления ботом, используйте кнопки на экране и список команды внизу экрана")
-            .AddLineStr("Бот предоставляет сбокри под конкретные нужды пользователя.")
+            .AddLineStr("Для управления ботом используйте кнопки на экране и список команд внизу.")
+            .AddLineStr("Бот предоставляет сборки под конкретные нужды пользователя.")
             .AddLineStr("\U000026A0 Внимание: бот не гарантирует полную совместимость компонентов и не заменяет специалистов \U000026A0");
 
         var messageId = (await client.SendMessage(user.ChatId, str.ToString(), ParseMode.Html, replyMarkup: GetInlineButtons(), cancellationToken: ct)).Id;
         user.LastMessageId = messageId;
-    }
-
-    private ReplyMarkup GetButtonsKeyboard()
-    {
-
-        return new ReplyKeyboardMarkup
-        {
-            Keyboard = new[]
-            {
-                new[]
-                {
-                    new KeyboardButton("Моя сборка 🖥")
-                },
-                new[]
-                {
-                    new KeyboardButton("Информация о боте 📖"),
-                },
-                new[]
-                {
-                    new KeyboardButton("Информация о WhiteLab 🔬")
-                },
-                new[]
-                {
-                    new KeyboardButton("Другие боты \U0001f9f0")
-                }
-            },
-            ResizeKeyboard = true
-        };
     }
 
     private InlineKeyboardMarkup GetInlineButtons()
@@ -154,6 +133,11 @@ internal class MainState : IDialogState
             new []
             {
                 InlineKeyboardButton.WithCallbackData("Моя сборка 🖥", "my asm"),
+                InlineKeyboardButton.WithUrl("Готовые сборки 🖥","https://t.me/Artem6115"),
+
+            },
+            new []
+            {
                 InlineKeyboardButton.WithUrl("Заказать сборку","https://t.me/Artem6115")
             },
             new []
@@ -162,12 +146,12 @@ internal class MainState : IDialogState
             },
             new []
             {
-                InlineKeyboardButton.WithCallbackData("Информация о WhiteLab \U0001F52C", "about whitelab")
+                InlineKeyboardButton.WithCallbackData("О WhiteLab \U0001F52C", "about whitelab")
 
             },
             new []
             {
-                InlineKeyboardButton.WithCallbackData("Информация о сборщике \U0001F468", "about me list")
+                InlineKeyboardButton.WithCallbackData("О сборщике \U0001F468", "about me list")
 
             },
             new []
@@ -193,14 +177,15 @@ internal class MainState : IDialogState
             },
             new []
             {
-                InlineKeyboardButton.WithCallbackData("Услуги \U0001F4CB", "cans list")
+                InlineKeyboardButton.WithUrl("Примеры сборок","https://t.me/Artem6115"),
+                InlineKeyboardButton.WithUrl("Заказать сборку","https://t.me/Artem6115")
             },
             new []
             {
-                InlineKeyboardButton.WithUrl("Приверы сборок","https://t.me/Artem6115"),
-                InlineKeyboardButton.WithUrl("Заказать сборку","https://t.me/Artem6115")
-            },
-            DefaultState.GetBackButton()
+                InlineKeyboardButton.WithCallbackData("Услуги \U0001F4CB", "cans list"),
+                DefaultState.GetBackInlineButton()
+
+            }
         });
     }
 }

@@ -16,7 +16,7 @@ internal static class DefaultState
         var text = message.Text?.Trim().ToLower() ?? "";
         if (text == "/start")
         {
-            botMessage.AddStr($"{message.Chat.FirstName ?? "Новый пользователь"} рад что вы обратились ко мне, буду рад помоч \U0001F91D");
+            botMessage.AddStr($"{message.Chat.FirstName ?? "Новый пользователь"}, рад что вы обратились ко мне, буду рад помоч \U0001F91D");
             user = new UserData() { ChatId = user.ChatId };
             user.CurrentState = new MainState();
         }
@@ -34,7 +34,7 @@ internal static class DefaultState
         }
         else if (text == "/main" || text.StartsWith("главное меню"))
         {
-            if(user.CurrentState != null) user.PreviewStates.Push(user.CurrentState);
+            if (user.CurrentState != null) user.PreviewStates.Push(user.CurrentState);
             user.CurrentState = new MainState();
             await user.CurrentState.SendPage(client, user, ct);
             return true;
@@ -44,14 +44,14 @@ internal static class DefaultState
             text = text.Replace("/comment", "");
             if (string.IsNullOrWhiteSpace(text))
             {
-                await client.SendMessage(user.ChatId, "Сообщение небыло оставлено \U000026A0", cancellationToken: ct);
+                await client.SendMessage(user.ChatId, "Сообщение не было отправлено \U000026A0", cancellationToken: ct);
                 return true;
 
             }
             text = $"Username: {message.Chat.Username} ({message.Chat.FirstName}), date {DateTime.UtcNow.AddHours(5)}, Message: {text}{Environment.NewLine}";
             File.AppendAllText("Comment.txt", text);
             Console.WriteLine(text);
-            await client.SendMessage(user.ChatId, "Сообщение успешно оставлено \u2705", cancellationToken: ct);
+            await client.SendMessage(user.ChatId, "Сообщение успешно отправлено \u2705", cancellationToken: ct);
             return true;
 
         }
@@ -66,7 +66,7 @@ internal static class DefaultState
     {
         botMessage
                 .AddLineStr("Бот хранит состояние диалога, а также сборки и заказы. Для каждого состояния есть список актуальных действий, которые отображаются под сообщением или в списке команд.")
-                .AddLineStr("Есть список команд, доступный всегда. Если в результате работы с ботом диалог спутался или возникла ошибка, вы всегда можете ими воспользоваться.")
+                .AddLineStr("Есть список команд, доступный всегда. Если в результате работы с ботом диалог сломался или возникла ошибка, вы всегда можете ими воспользоваться.")
                 .AddLineStr("-------------------------------------------")
                 .AddLineStr()
                 .AddLineStr("Список команд:")
@@ -80,29 +80,22 @@ internal static class DefaultState
     public static void AboutMessage(TelegramStringBuilder botMessage)
     {
         botMessage
-                .AddLineStr("PCConfigurator - бот который подбирает актульные комплектующие пк в рамках бюджета, учитывая цели клиента")
-                .AddLineStr("Для каждой части из комплекта имеется группировка по признакам или тех. характеристиками с усреднёными значениями, по этому бот не даёт 100% гарантии совместимости компонентов")
-                .AddLineStr("Для создания собственной сборки выберите команду 'Новая сборка' из главного меню, далее необходимо пройти список вопрос")
-                .AddLineStr("После составления сборки она сохранится и вы можете заказать сборку");
+            .AddLineStr("PCConfigurator — бот, который подбирает актуальные комплектующие ПК в рамках бюджета с учетом целей клиента.")
+            .AddLineStr("Для каждой части комплекта имеется группировка по признакам или тех. характеристикам с усредненными значениями, поэтому бот не дает 100% гарантии совместимости компонентов.")
+            .AddLineStr("Для создания собственной сборки выберите команду 'Новая сборка' из главного меню, далее необходимо пройти список вопросов.")
+            .AddLineStr("После составления сборки она сохранится, и вы сможете заказать сборку");
     }
 
     public static void SupporttMessage(TelegramStringBuilder botMessage)
     {
         botMessage
-            .AddLineStr("При наличии проблем или вопросов по заказы обращайтесь к - https://t.me/Artem6115")
-            .AddLineStr("При наличии проблем с ботом или пожеланий, введите /comment, далее напишите свое обращение");
+            .AddLineStr("При наличии проблем или вопросов по заказам обращайтесь к @Artem6115")
+            .AddLineStr("Также вы можете оставить сообщение, написать пожелание, предложение по улучшению бота или описать проблему. Для этого введите /comment и напишите обращение");
     }
 
-    public static ReplyMarkup GetBackReplyMarkup()
-    {
-        return new InlineKeyboardMarkup(new[]
-        {
-            new []
-            {
-                InlineKeyboardButton.WithCallbackData("Назад \U000021A9", "back")
-            }
-        });
-    }
+    public static InlineKeyboardButton GetBackInlineButton()
+        => InlineKeyboardButton.WithCallbackData("Назад \U000021A9", "back");
+    
 
     public static InlineKeyboardButton[] GetBackButton()
     {
