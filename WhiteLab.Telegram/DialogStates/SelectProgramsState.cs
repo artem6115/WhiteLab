@@ -52,7 +52,7 @@ internal class SelectProgramsState : IDialogState
             .AddLineStr()
             .AddBoldStrHtml("Выбор конкретных программ")
             .AddLineStr()
-            .AddLineStr($"Напиши через запятую конкретные игры или программы (пример: Unity, Unreal Engine, cs2, dota 2){Environment.NewLine}Известные сокращения распознаются cs -> Counter Strice 2, но лучше писать целиком{Environment.NewLine}Если некторых программ нету, а они были указаны, значит бот не имеет в базе данную программу или она была написана с ошибкой");
+            .AddLineStr($"Напишите через запятую конкретные игры или программы (пример: Unity, Unreal Engine, cs2, dota 2).{Environment.NewLine}Известные сокращения распознаются, cs -> Counter Strike 2, но лучше писать целиком.{Environment.NewLine}Если некоторых программ нет, а они были указаны, значит бот не имеет их в базе или они были написаны с ошибками");
 
         var messageId = (await client.SendMessage(user.ChatId, str.ToString(), ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct)).Id;
         user.LastMessageId = messageId;

@@ -43,7 +43,7 @@ internal class ExistPGUState : IDialogState
             .AddLineStr()
             .AddBoldStrHtml("Нужна видеокарта?")
             .AddLineStr()
-            .AddLineStr("Если нет будет пдобран процессор с графическим ядром, если видеокарта будет можно подобрать процессор без встроенной графики, он будет дешевле");
+            .AddLineStr("Если нет — будет подобран процессор с графическим ядром. Если да — можно подобрать процессор без встроенной графики, он будет дешевле");
 
         var messageId = (await client.SendMessage(user.ChatId, str.ToString(), ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct)).Id;
         user.LastMessageId = messageId;

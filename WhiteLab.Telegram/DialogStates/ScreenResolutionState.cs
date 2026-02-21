@@ -15,7 +15,7 @@ internal class ScreenResolutionState : IDialogState
     public async Task AcceptcMessage(ITelegramBotClient client, Message message, UserData user, CancellationToken ct)
     {
         message.Text ??= "";
-        message.Text = message.Text.Replace("2K", "2000").Replace("4K","4000");
+        message.Text = message.Text.Split(' ').First();
         if (message.Text.Contains("Назад"))
         {
             user.CurrentState = user.GoBack();
@@ -41,9 +41,9 @@ internal class ScreenResolutionState : IDialogState
         str
             .AddItalicStrHtml("Шаг 3/n ✅")
             .AddLineStr()
-            .AddBoldStrHtml("Выбор расширения экрана монитора")
+            .AddBoldStrHtml("Выбор расширения монитора")
             .AddLineStr()
-            .AddLineStr("Нажмите на кнопку с расширенем которе есть у вашего монитора либо, у монитора который планируете использовать с данным компьютером");
+            .AddLineStr("Нажмите на кнопку с разрешением, которое есть у вашего монитора или у монитора который планируете использовать с данным компьютером");
 
         var messageId = (await client.SendMessage(user.ChatId, str.ToString(), ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct)).Id;
         user.LastMessageId = messageId;
@@ -58,16 +58,12 @@ internal class ScreenResolutionState : IDialogState
             {
                 new[]
                 {
-                    new KeyboardButton("1080"),
-                    new KeyboardButton("1440")
+                    new KeyboardButton("1080 FHD"),
+                    new KeyboardButton("1440 QHD (2K)")
                 },
                 new[]
                 {
-                    new KeyboardButton("2K"),
-                    new KeyboardButton("4K")
-                },
-                new[]
-                {
+                    new KeyboardButton("2160 UHD (4K)"),
                     new KeyboardButton("Назад \U000021A9")
                 },
             },

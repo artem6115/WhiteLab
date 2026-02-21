@@ -8,7 +8,7 @@ public class CPUTests
     [TestCase(PowerLevelEnum.Office, 50000)]
     [TestCase(PowerLevelEnum.School, 150000)]
     [TestCase(PowerLevelEnum.Study, 150000)]
-    [TestCase(PowerLevelEnum.Streamin, 50000)]
+    [TestCase(PowerLevelEnum.Streaming, 50000)]
     [TestCase(PowerLevelEnum.Gaming, 50000)]
     [TestCase(PowerLevelEnum.HighGaming, 50000)]
     [TestCase(PowerLevelEnum.ProGaming, 50000)]

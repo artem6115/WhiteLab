@@ -44,9 +44,9 @@ internal class WorkTirState : IDialogState
         str
             .AddItalicStrHtml("Шаг 5/n ✅")
             .AddLineStr()
-            .AddBoldStrHtml("Выберите требования к производительности")
+            .AddBoldStrHtml("Выберите основную цель использования ПК")
             .AddLineStr()
-            .AddLineStr("Выберите какого уровня задачи должен решать компьютер");
+            .AddLineStr("Укажите какого уровня задачи должен решать компьютер");
 
         var messageId = (await client.SendMessage(user.ChatId, str.ToString(), ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct)).Id;
         user.LastMessageId = messageId;
@@ -69,7 +69,7 @@ internal class WorkTirState : IDialogState
                 {
                     new KeyboardButton("Gaming"),
                     new KeyboardButton("Render"),
-                    new KeyboardButton("Streamin"),
+                    new KeyboardButton("Streaming"),
                 },
                 new[]
                 {

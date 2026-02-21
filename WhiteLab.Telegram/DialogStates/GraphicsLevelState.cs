@@ -43,7 +43,8 @@ internal class GraphicsLevelState : IDialogState
             .AddLineStr()
             .AddBoldStrHtml("Выберите настройки графики")
             .AddLineStr()
-            .AddLineStr("Выберите уровень графики который компьютер должен поддерживать");
+            .AddLineStr("Выберите уровень графики который компьютер должен поддерживать")
+            .AddLineStr("(Указанные далее программы должны поддерживать заданный уровень графики)");
 
         var messageId = (await client.SendMessage(user.ChatId, str.ToString(), ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct)).Id;
         user.LastMessageId = messageId;

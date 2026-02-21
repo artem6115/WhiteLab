@@ -53,7 +53,7 @@ internal class BudgetState : IDialogState
             return;
         }
         if (usaVal) badget *= 75;
-        await client.SendMessage(user.ChatId, $"Бюджет: {badget}₽", cancellationToken: ct);
+        if(badget != uint.MaxValue)await client.SendMessage(user.ChatId, $"Бюджет: {badget}₽", cancellationToken: ct);
         user.Requirements = new PCConfigurator.Requirenments.Requirements() { Budget = badget };
         user.PreviewStates.Push(this);
         user.CurrentState = new ExistPGUState();

@@ -6,7 +6,7 @@ public enum PowerLevelEnum
     School,
     Study,
     Gaming,
-    Streamin,
+    Streaming,
     HighGaming,
     ProGaming,
     Render,
