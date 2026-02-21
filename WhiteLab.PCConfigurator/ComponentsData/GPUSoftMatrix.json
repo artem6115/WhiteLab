@@ -123,38 +123,38 @@
         "resolutions": {
           "1080": {
             "low": {
-              "recommended_gpu": "RTX 3060",
+              "recommended_gpu": "RTX 3050",
               "vram": "6GB",
               "fps_target": 240,
               "notes": "Competitive 240Hz"
             },
             "medium": {
-              "recommended_gpu": "RTX 3070",
-              "vram": "8GB",
-              "fps_target": 300,
-              "notes": "Reflex 300+"
+              "recommended_gpu": "RTX 3050",
+              "vram": "6GB",
+              "fps_target": 240,
+              "notes": "Competitive 240Hz"
             },
             "high": {
-              "recommended_gpu": "RTX 4070",
-              "vram": "12GB",
+              "recommended_gpu": "RTX 4060",
+              "vram": "8GB",
               "fps_target": 360,
               "notes": "360 FPS"
             },
             "ultra": {
-              "recommended_gpu": "RTX 4090",
-              "vram": "24GB",
+              "recommended_gpu": "RTX 4070",
+              "vram": "8GB",
               "fps_target": 400,
               "notes": "Maximum 400+"
             }
           },
           "1440": {
             "low": {
-              "recommended_gpu": "RTX 3070",
+              "recommended_gpu": "RTX 3060",
               "vram": "8GB",
               "fps_target": 240
             },
             "medium": {
-              "recommended_gpu": "RTX 3080",
+              "recommended_gpu": "RTX 4060 Ti",
               "vram": "10GB",
               "fps_target": 300
             },
@@ -164,36 +164,36 @@
               "fps_target": 360
             },
             "ultra": {
-              "recommended_gpu": "RTX 5090",
-              "vram": "24GB",
-              "fps_target": 500
+              "recommended_gpu": "RTX 4070 Ti Super",
+              "vram": "12GB",
+              "fps_target": 360
             }
           },
           "2000": {
             "low": {
-              "recommended_gpu": "RTX 3080",
-              "vram": "10GB",
+              "recommended_gpu": "RTX 3060",
+              "vram": "8GB",
               "fps_target": 240
             },
             "medium": {
-              "recommended_gpu": "RTX 3080 Ti",
-              "vram": "12GB",
-              "fps_target": 240
-            },
-            "high": {
-              "recommended_gpu": "RTX 4080",
-              "vram": "16GB",
+              "recommended_gpu": "RTX 4060 Ti",
+              "vram": "10GB",
               "fps_target": 300
             },
+            "high": {
+              "recommended_gpu": "RTX 4070 Ti",
+              "vram": "12GB",
+              "fps_target": 360
+            },
             "ultra": {
-              "recommended_gpu": "RTX 5090",
-              "vram": "24GB",
-              "fps_target": 400
+              "recommended_gpu": "RTX 4070 Ti Super",
+              "vram": "12GB",
+              "fps_target": 360
             }
           },
           "4000": {
             "low": {
-              "recommended_gpu": "RTX 4080",
+              "recommended_gpu": "RTX 4070 Super",
               "vram": "16GB",
               "fps_target": 144
             },
@@ -203,12 +203,12 @@
               "fps_target": 144
             },
             "high": {
-              "recommended_gpu": "RTX 4090",
+              "recommended_gpu": "RTX 5080",
               "vram": "24GB",
               "fps_target": 200
             },
             "ultra": {
-              "recommended_gpu": "RTX 5090",
+              "recommended_gpu": "RTX 4090",
               "vram": "24GB",
               "fps_target": 240
             }
@@ -2612,6 +2612,229 @@
           }
         }
       },
+      "Visual_Studio": {
+        "type": "ide",
+        "genre": "development",
+        "engine": "Visual_Studio",
+        "resolutions": {
+          "1080": {
+            "low": {
+              "recommended_gpu": "Integrated",
+              "vram": "2GB",
+              "fps_target": 60,
+              "notes": "Code editing"
+            },
+            "medium": {
+              "recommended_gpu": "GTX 1650",
+              "vram": "4GB",
+              "fps_target": 60,
+              "notes": "Debug + emulation"
+            },
+            "high": {
+              "recommended_gpu": "RTX 3060",
+              "vram": "6GB",
+              "fps_target": 60,
+              "notes": "VMs + Android Studio"
+            },
+            "ultra": {
+              "recommended_gpu": "RTX 4070",
+              "vram": "12GB",
+              "fps_target": 60,
+              "notes": "Heavy compilation + VMs"
+            }
+          },
+          "1440": {
+            "low": {
+              "recommended_gpu": "GTX 1650",
+              "vram": "4GB",
+              "fps_target": 60,
+              "notes": "Code editing"
+            },
+            "medium": {
+              "recommended_gpu": "RTX 3060",
+              "vram": "6GB",
+              "fps_target": 60,
+              "notes": "Debug + multiple VMs"
+            },
+            "high": {
+              "recommended_gpu": "RTX 4070",
+              "vram": "12GB",
+              "fps_target": 60,
+              "notes": "Android/iOS emulation"
+            },
+            "ultra": {
+              "recommended_gpu": "RTX 4080",
+              "vram": "16GB",
+              "fps_target": 60,
+              "notes": "4K VMs + Docker"
+            }
+          },
+          "2k": {
+            "low": {
+              "recommended_gpu": "GTX 1650",
+              "vram": "4GB",
+              "fps_target": 60,
+              "notes": "Code editing"
+            },
+            "medium": {
+              "recommended_gpu": "RTX 3060",
+              "vram": "6GB",
+              "fps_target": 60,
+              "notes": "Debug + multiple VMs"
+            },
+            "high": {
+              "recommended_gpu": "RTX 4070",
+              "vram": "12GB",
+              "fps_target": 60,
+              "notes": "Android/iOS emulation"
+            },
+            "ultra": {
+              "recommended_gpu": "RTX 4080",
+              "vram": "16GB",
+              "fps_target": 60,
+              "notes": "4K VMs + Docker"
+            }
+          },
+          "4k": {
+            "low": {
+              "recommended_gpu": "RTX 3060",
+              "vram": "8GB",
+              "fps_target": 60,
+              "notes": "Code + 4K UI"
+            },
+            "medium": {
+              "recommended_gpu": "RTX 4070",
+              "vram": "12GB",
+              "fps_target": 60,
+              "notes": "Multiple 4K VMs"
+            },
+            "high": {
+              "recommended_gpu": "RTX 4080",
+              "vram": "16GB",
+              "fps_target": 60,
+              "notes": "Heavy dev environment"
+            },
+            "ultra": {
+              "recommended_gpu": "RTX 4090",
+              "vram": "24GB",
+              "fps_target": 60,
+              "notes": "Enterprise development"
+            }
+          }
+        }
+      },
+      "Visual_Studio_Code": {
+        "type": "ide",
+        "genre": "code_editor",
+        "engine": "Electron",
+        "resolutions": {
+          "1080": {
+            "low": {
+              "recommended_gpu": "Integrated",
+              "vram": "1GB",
+              "fps_target": 60,
+              "notes": "Basic editing"
+            },
+            "medium": {
+              "recommended_gpu": "GTX 1050",
+              "vram": "2GB",
+              "fps_target": 60,
+              "notes": "Extensions + Live Preview"
+            },
+            "high": {
+              "recommended_gpu": "RTX 3060",
+              "vram": "4GB",
+              "fps_target": 60,
+              "notes": "Multiple workspaces"
+            },
+            "ultra": {
+              "recommended_gpu": "RTX 3060",
+              "vram": "6GB",
+              "fps_target": 60,
+              "notes": "Heavy extensions + Docker"
+            }
+          },
+          "1440": {
+            "low": {
+              "recommended_gpu": "Integrated",
+              "vram": "2GB",
+              "fps_target": 60,
+              "notes": "Code editing"
+            },
+            "medium": {
+              "recommended_gpu": "GTX 1650",
+              "vram": "4GB",
+              "fps_target": 60,
+              "notes": "Live Server + extensions"
+            },
+            "high": {
+              "recommended_gpu": "RTX 3060",
+              "vram": "6GB",
+              "fps_target": 60,
+              "notes": "Multiple terminals + preview"
+            },
+            "ultra": {
+              "recommended_gpu": "RTX 4070",
+              "vram": "8GB",
+              "fps_target": 60,
+              "notes": "4K preview + GPU tasks"
+            }
+          },
+          "2k": {
+            "low": {
+              "recommended_gpu": "Integrated",
+              "vram": "2GB",
+              "fps_target": 60,
+              "notes": "Code editing"
+            },
+            "medium": {
+              "recommended_gpu": "GTX 1650",
+              "vram": "4GB",
+              "fps_target": 60,
+              "notes": "Live Server + extensions"
+            },
+            "high": {
+              "recommended_gpu": "RTX 3060",
+              "vram": "6GB",
+              "fps_target": 60,
+              "notes": "Multiple terminals + preview"
+            },
+            "ultra": {
+              "recommended_gpu": "RTX 4070",
+              "vram": "8GB",
+              "fps_target": 60,
+              "notes": "4K preview + GPU tasks"
+            }
+          },
+          "4k": {
+            "low": {
+              "recommended_gpu": "GTX 1650",
+              "vram": "4GB",
+              "fps_target": 60,
+              "notes": "4K UI scaling"
+            },
+            "medium": {
+              "recommended_gpu": "RTX 3060",
+              "vram": "6GB",
+              "fps_target": 60,
+              "notes": "Multiple 4K tabs"
+            },
+            "high": {
+              "recommended_gpu": "RTX 4070",
+              "vram": "8GB",
+              "fps_target": 60,
+              "notes": "GPU-accelerated extensions"
+            },
+            "ultra": {
+              "recommended_gpu": "RTX 4080",
+              "vram": "12GB",
+              "fps_target": 60,
+              "notes": "Heavy web dev + VMs"
+            }
+          }
+        }
+      },
+
       "Unity": {
         "type": "software",
         "category": "game_engine",
@@ -3711,6 +3934,8 @@
       "Red_Dead_Redemption_2": [ "rdr2", "red_dead_redemption_2", "red_dead_2", "смертельная_погоня_2", "смертельная_погоня2", "смертельная_погоня", "рдр2", "рдр_2", "red_dead_redemption", "red_dead" ],
       "Divinity_Original_Sin_2": [ "divinity_original_sin_2", "dos2", "дивинити", "дивинити2", "дивинити_2", "divinity_original", "divinity", "dos_2", "divinity2", "divinity_2" ],
       "DOOM_Eternal": [ "doom_eternal", "doom", "дум_вечный", "дум", "доом" ],
+      "Visual_Studio_Code": [ "visual studio code", "vs code", "вс код" ],
+      "Visual_Studio": [ "visual studio", "vs", "визуал студиа", "визуал студио"],
       "Unity": [ "unity", "unity_engine", "unity_editor" ],
       "Unreal_Engine": [ "unreal_engine", "unreal", "ue5", "ue4", "анриал" ],
       "Adobe_Photoshop": [ "photoshop", "ps", "фотошоп", "adobe_photoshop" ],
@@ -3781,8 +4006,7 @@
       "RTX 4090 24GB": 6,
       "RTX 5090 32GB": 6
     },
-    "gpu_alternative" :
-    {
+    "gpu_alternative": {
       "rtx 3060 12gb": [ "rtx 3060 12gb", "rtx 5050 8gb" ],
       "rtx 4060 8gb": [ "rtx 4060 8gb", "rtx 5060 8gb" ],
       "rtx 3060 ti 8gb": [ "rtx 3060 ti 8gb", "rtx 5060 ti 8gb" ],
