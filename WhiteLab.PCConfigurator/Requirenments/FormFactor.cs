@@ -4,7 +4,5 @@ public enum FormFactor
 {
     Default,
     ATX,
-    MicroATX,
-    MiniATX,
-    EATX
+    MicroATX
 }

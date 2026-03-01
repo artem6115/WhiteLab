@@ -52,44 +52,46 @@ internal static class ModelProvider
 
     public async static Task<List<RAM>> GetRAMs(CancellationToken ct)
     {
-        throw new NotImplementedException();
+        var json = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "RAMs.json"), ct);
+        return JsonSerializer.Deserialize<List<RAM>>(json)
+            ?? throw new InvalidDataException("RAMs.json is invalid or empty");
+
+    }
+
+    public async static Task<JsonNode> GetRAMSoftMatrix(CancellationToken ct)
+    {
+        var jsonStr = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "RAMSoftMatrix.json"), ct);
+        return JsonObject.Parse(jsonStr, new JsonNodeOptions { PropertyNameCaseInsensitive = true })
+            .ThrowIfDataIsNull("RAMSoftMatrix.json is empty or invalid");
 
     }
 
     public async static Task<List<SSD>> GetSSDs(CancellationToken ct)
     {
 
-        throw new NotImplementedException();
+        var json = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "SSDs.json"), ct);
+        return JsonSerializer.Deserialize<List<SSD>>(json)
+            ?? throw new InvalidDataException("SSDs.json is invalid or empty");
     }
-
-    public async static Task<List<HDD>> GetHDDs(CancellationToken ct)
-    {
-        throw new NotImplementedException();
-
-    }
-
-
 
     public async static Task<List<Cooling>> GetCoolings(CancellationToken ct)
     {
-        throw new NotImplementedException();
+        var json = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "Coolings.json"), ct);
+        var coolings = JsonSerializer.Deserialize<Cooling[]>(json)
+            ?? throw new InvalidDataException("Coolings.json is invalid or empty");
 
-    }
+        json = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "WCoolings.json"), ct);
+        var wCoolings = JsonSerializer.Deserialize<Cooling[]>(json)
+            ?? throw new InvalidDataException("WCoolings.json is invalid or empty");
 
-    public async static Task<List<Fan>> GetFans(CancellationToken ct)
-    {
-        throw new NotImplementedException();
-
-    }
-
-    public async static Task<List<Body>> GetBodies(CancellationToken ct)
-    {
-        throw new NotImplementedException();
+        return coolings.Concat(wCoolings).ToList();
     }
 
     public async static Task<List<Power>> GetPowers(CancellationToken ct)
     {
-        throw new NotImplementedException();
+        var json = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "Powers.json"), ct);
+        return JsonSerializer.Deserialize<List<Power>>(json)
+            ?? throw new InvalidDataException("Powers.json is invalid or empty");
     }
 
 }

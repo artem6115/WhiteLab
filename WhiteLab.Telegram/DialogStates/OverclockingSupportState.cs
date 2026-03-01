@@ -39,7 +39,7 @@ internal class OverclockingSupportState : IDialogState
     {
         var str = new TelegramStringBuilder();
         str
-            .AddItalicStrHtml("Шаг 7/n ✅")
+            .AddItalicStrHtml("Шаг 9/14 ✅")
             .AddLineStr()
             .AddBoldStrHtml("Разгон!")
             .AddLineStr()
@@ -64,7 +64,7 @@ internal class OverclockingSupportState : IDialogState
                 },
                 new[]
                 {
-                    new KeyboardButton("Не имеет значения"),
+                    new KeyboardButton("Неважно"),
                     new KeyboardButton("Что это? (нет)"),
                     new KeyboardButton("Назад \U000021A9")
                 }

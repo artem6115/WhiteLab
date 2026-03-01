@@ -8,6 +8,24 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace WhiteLab.Telegram.DialogStates;
 
+/*
+ 1 - budget
+ 2 - need GPU
+ 3 - monitor resolution
+ 4 - grapfics level
+ 5 - target
+ 6 - soft
+ 7 - disk size
+ 8 - split disk
+ 9 - kachegaring
+ 10 - yangest components
+ 11 - from factor
+ 12 - color
+ 13 - rgb 
+ 14 - wishes
+
+ */
+
 internal class MainState : IDialogState
 {
     public async Task AcceptcCallback(ITelegramBotClient client, CallbackQuery callback, UserData user, CancellationToken ct)

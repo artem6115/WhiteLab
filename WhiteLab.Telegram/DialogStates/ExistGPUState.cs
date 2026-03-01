@@ -5,7 +5,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace WhiteLab.Telegram.DialogStates;
 
-internal class ExistPGUState : IDialogState
+internal class ExistGPUState : IDialogState
 {
     public async Task AcceptcCallback(ITelegramBotClient client, CallbackQuery callback, UserData user, CancellationToken ct)
     { }
@@ -39,7 +39,7 @@ internal class ExistPGUState : IDialogState
     {
         var str = new TelegramStringBuilder();
         str
-            .AddItalicStrHtml("Шаг 2/n ✅")
+            .AddItalicStrHtml("Шаг 2/14 ✅")
             .AddLineStr()
             .AddBoldStrHtml("Нужна видеокарта?")
             .AddLineStr()

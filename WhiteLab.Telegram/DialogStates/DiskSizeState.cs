@@ -1,11 +1,15 @@
-﻿using Telegram.Bot;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
+using WhiteLab.PCConfigurator.Requirenments;
 
 namespace WhiteLab.Telegram.DialogStates;
 
-internal class YangestComponentsState : IDialogState
+internal class DiskSizeState : IDialogState
 {
     public Task AcceptcCallback(ITelegramBotClient client, CallbackQuery callback, UserData user, CancellationToken ct)
     {
@@ -14,8 +18,7 @@ internal class YangestComponentsState : IDialogState
 
     public async Task AcceptcMessage(ITelegramBotClient client, Message message, UserData user, CancellationToken ct)
     {
-        message.Text ??= "";
-
+        message.Text = message.Text?.Trim() ?? "";
         if (message.Text.Contains("Назад"))
         {
             user.CurrentState = user.GoBack();
@@ -23,15 +26,15 @@ internal class YangestComponentsState : IDialogState
             return;
         }
 
-        if (message.Text != "Да" && message.Text != "Неважно")
+        if(!ushort.TryParse(message.Text, out var value))
         {
-            await client.SendMessage(user.ChatId, "Пожалуйста нажмине на кнопку", ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct);
+            await client.SendMessage(user.ChatId, "Пожалуйста нажмине на кнопку или ввидите целое число", ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct);
             return;
         }
 
-        user.Requirements!.YangestComponents = message.Text == "Да";
+        user.Requirements!.MemorySize = value;
         user.PreviewStates.Push(this);
-        user.CurrentState = new FormFactorState();
+        user.CurrentState = new SplitDiskState();
         await user.CurrentState.SendPage(client, user, ct);
     }
 
@@ -39,13 +42,9 @@ internal class YangestComponentsState : IDialogState
     {
         var str = new TelegramStringBuilder();
         str
-            .AddItalicStrHtml("Шаг 10/14 ✅")
+            .AddItalicStrHtml("Шаг 7/14 ✅")
             .AddLineStr()
-            .AddBoldStrHtml("Только современное железо?")
-            .AddLineStr()
-            .AddLineStr("Хотите ли вы иметь современные компоненты?")
-            .AddLineStr("Это даёт возможность апгрейда на более мощные компоненты в будущем, но значительно увеличивает итоговую стоимость");
-
+            .AddBoldStrHtml("Сколько гигабайт долгосрочной памяти нужено:\U0001F5A5");
 
         var messageId = (await client.SendMessage(user.ChatId, str.ToString(), ParseMode.Html, replyMarkup: GetButtonsKeyboard(), cancellationToken: ct)).Id;
         user.LastMessageId = messageId;
@@ -58,13 +57,21 @@ internal class YangestComponentsState : IDialogState
         {
             Keyboard = new[]
             {
-                new[]
-                {
-                    new KeyboardButton("Да"),
-                    new KeyboardButton("Неважно"),
-                    new KeyboardButton("Назад \U000021A9")
-                }
-            },
+                    new[]
+                    {
+                        new KeyboardButton("500"),
+                        new KeyboardButton("1000")
+                    },
+                    new[]
+                    {
+                        new KeyboardButton("1500"),
+                        new KeyboardButton("2000")
+                    },
+                    new[]
+                    {
+                        new KeyboardButton("Назад \U000021A9")
+                    },
+                },
             ResizeKeyboard = true
         };
     }

@@ -2,17 +2,17 @@
 
 public enum WishesEnum
 {
-    No,
-    CPUAMD,
-    CPUIntel,
+    CPU_AMD,
+    CPU_Intel,
     AM5,
     LGA1700,
     LGA1851,
     DDR4,
     DDR5,
-    ORM16GB,
-    ORM32GB,
-    ORM64GB,
-    ImageOnCooling,
-    GPULed,
+    RAM_16GB,
+    RAM_32GB,
+    RAM_64GB,
+    GPU_Illumination,
+    Water_Cooling,
+    Modular_Power
 }

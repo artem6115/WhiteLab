@@ -45,14 +45,16 @@ internal static class PCGlobalContainer
             con.Gpus = await ModelProvider.GetGPUs(ct);
             con.Cpus = await ModelProvider.GetCPUs(ct);
             con.Motherboards = await ModelProvider.GetMotherboards(ct);
-
+            con.RAMs = await ModelProvider.GetRAMs(ct);
+            con.SSDs = await ModelProvider.GetSSDs(ct);
+            con.Coolings = await ModelProvider.GetCoolings(ct);
+            //con.Powers = await ModelProvider.GetPowers(ct);
 
             var rel = new ComponentRelationships();
             rel.GPUSoftMatrix = await ModelProvider.GetGPUSoftMatrix(ct);
             rel.GPUTirMatrix = await ModelProvider.GetGPUTirMatrix(ct);
-
             rel.CPUSoftMatrix= await ModelProvider.GetCPUSoftMatrix(ct);
-
+            rel.RAMoftMatrix = await ModelProvider.GetRAMSoftMatrix(ct);
             _container = con;
             _relationships = rel;
         }

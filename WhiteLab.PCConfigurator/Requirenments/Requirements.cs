@@ -14,16 +14,15 @@ public class Requirements
 
     // system requirements
 
-    public bool SplitDisk { get; set; }
-    public ushort MemorySize { get; set; }
+    public bool SplitDisk { get; set; }//
+    public ushort MemorySize { get; set; }//
 
     //other
     public bool YangestComponents { get; set; }
-    public FormFactor FormFactor { get; set; }
-    public BodyTypeEnum BodyType { get; set; }
-    public List<RgbEnum> Rgb { get; set; } = new();
-    public ColorStyleEnum ColorStyle { get; set; }
+    public FormFactor FormFactor { get; set; }//-
+    public HashSet<RgbEnum> Rgb { get; set; } = new();//-
+    public ColorStyleEnum ColorStyle { get; set; }//-
     //front
 
-    public List<WishesEnum> Wishes { get; set; } = new();
+    public HashSet<WishesEnum> Wishes { get; set; } = new();
 }

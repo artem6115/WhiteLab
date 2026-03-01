@@ -8,7 +8,8 @@ namespace WhiteLab.Bot;
 
 internal class Program
 {
-    static int Main(string[] args)
+    private static TelegramBotClient? _bot;
+    static async Task Main(string[] args)
     {
         var source = new CancellationTokenSource();
         Console.CancelKeyPress += (s, o) => Exit(source);
@@ -44,12 +45,50 @@ internal class Program
             .Replace("\u200B", "")                     // Zero-Width Space
             .Replace("\r", "").Replace("\n", "");      // Лишние переносы
         TelegramOptions.Token = token;
+        await Execute(source.Token);
+    }
+
+    public static async Task Execute(CancellationToken ct)
+    {
+        while(!ct.IsCancellationRequested)
+        {
+            try
+            {
+                StartTg(ct);
+                Console.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.ToString());
+                Console.ResetColor();
+            }
+            finally
+            {
+                await StopTg(ct);
+                await Task.Delay(10000, ct);
+            }
+
+        }
+        
+    }
+
+    public static void StartTg(CancellationToken ct)
+    {
         var opt = new ReceiverOptions() { AllowedUpdates = [UpdateType.CallbackQuery, UpdateType.Message] };
-        var bot = new TelegramBotClient(token);
-        bot.StartReceiving<TelegramRecipient>(opt, source.Token);
+        _bot = new TelegramBotClient(TelegramOptions.Token);
+        _bot.StartReceiving<TelegramRecipient>(opt, ct);
         Console.WriteLine("Start bot");
-        Console.ReadLine();
-        return 0;
+    }
+
+    public async static Task StopTg(CancellationToken ct)
+    {
+        try
+        {
+            if (_bot != null) await _bot.DeleteWebhook(false, ct);
+            Console.WriteLine("Stop bot");
+        }
+        catch { }
     }
 
     private static void Exit(CancellationTokenSource source)

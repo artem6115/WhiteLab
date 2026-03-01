@@ -39,7 +39,7 @@ internal class ScreenResolutionState : IDialogState
     {
         var str = new TelegramStringBuilder();
         str
-            .AddItalicStrHtml("Шаг 3/n ✅")
+            .AddItalicStrHtml("Шаг 3/14 ✅")
             .AddLineStr()
             .AddBoldStrHtml("Выбор расширения монитора")
             .AddLineStr()

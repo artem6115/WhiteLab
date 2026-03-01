@@ -6,6 +6,5 @@ public enum RgbEnum
     RAM,
     Cooling,
     Fans,
-    GPU,
-    Сable
+    GPU
 }

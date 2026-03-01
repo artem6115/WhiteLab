@@ -14,8 +14,10 @@ public class PCConfigurator
         List<IStep> steps = [
             new CPUSelectionStep(requirements, container, relationships),
             new MotherboardSelectionStep(requirements, container, relationships),
+            new RAMSelectionStep(requirements, container, relationships),
 
         ];
+
         if (!requirements.ExcludeGpu) steps.Insert(0, new GPUSelectionStep(requirements, container, relationships));
         foreach (var step in steps) step?.SetupBaseComponents();
         if (requirements.ExcludeGpu)  container.Gpus = [];
@@ -67,7 +69,7 @@ public class PCConfigurator
         [
             new PCConfig.PCComponent(container.Cpus[0], null, container.CpusInfo),
             new PCConfig.PCComponent(container.Motherboards[0], null, container.MotherboardInfo),
-
+            new PCConfig.PCComponent(container.RAMs[0], null, container.RAMInfo),
 
         ];
         if (container.Gpus.Any()) pc.Components.Insert(0, new PCConfig.PCComponent(container.Gpus[0], string.Join(',', container.Gpus.Take(3).SelectMany(m => m.Models.Take(3).Select(mm => $"{m.Seria} {mm}"))).Replace(",", ", "), container.GpusInfo));

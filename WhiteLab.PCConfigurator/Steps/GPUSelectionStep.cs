@@ -133,7 +133,7 @@ internal class GPUSelectionStep : IStep
                 gpus = _setupGpus
                     .Where(g => !_requirements.YangestComponents || g.Seria.StartsWith("RTX 5"))
                     .Where(WhereColorStyleAndGPUColor)
-                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.GPULed) || g.Led)
+                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.GPU_Illumination) || g.Led)
                     .Where(WhereRgbAndSupportGPU);
                 break;
             case 1:
@@ -142,7 +142,7 @@ internal class GPUSelectionStep : IStep
                 gpus = _setupGpus
                     .Where(g => !_requirements.YangestComponents || g.Seria.StartsWith("RTX 5"))
                     .Where(WhereColorStyleAndGPUColor)
-                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.GPULed) || g.Led);
+                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.GPU_Illumination) || g.Led);
                 break;
             case 2:
                 _container.GpusInfo += $"Требования к наличию подсветки и rgb были опущены";
@@ -179,7 +179,6 @@ internal class GPUSelectionStep : IStep
         {
             FormFactor.ATX => gpu.Width <= 380,
             FormFactor.MicroATX => gpu.Width <= 360,
-            FormFactor.MiniATX => gpu.Width <= 320,
             _ => true 
         };
     }

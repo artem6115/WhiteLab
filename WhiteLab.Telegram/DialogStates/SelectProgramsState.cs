@@ -27,7 +27,7 @@ internal class SelectProgramsState : IDialogState
         if (message.Text.Contains("Пропустить"))
         {
             user.PreviewStates.Push(this);
-            user.CurrentState = new OverclockingSupportState();
+            user.CurrentState = new DiskSizeState();
             await user.CurrentState.SendPage(client, user, ct);
             return;
         }
@@ -40,7 +40,7 @@ internal class SelectProgramsState : IDialogState
             await Task.Delay(2000);
         }
         user.PreviewStates.Push(this);
-        user.CurrentState = new OverclockingSupportState();
+        user.CurrentState = new DiskSizeState();
         await user.CurrentState.SendPage(client, user, ct);
     }
 
@@ -48,7 +48,7 @@ internal class SelectProgramsState : IDialogState
     {
         var str = new TelegramStringBuilder();
         str
-            .AddItalicStrHtml("Шаг 6/n ✅")
+            .AddItalicStrHtml("Шаг 6/14 ✅")
             .AddLineStr()
             .AddBoldStrHtml("Выбор конкретных программ")
             .AddLineStr()

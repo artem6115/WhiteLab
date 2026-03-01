@@ -39,7 +39,7 @@ internal class GraphicsLevelState : IDialogState
     {
         var str = new TelegramStringBuilder();
         str
-            .AddItalicStrHtml("Шаг 4/n ✅")
+            .AddItalicStrHtml("Шаг 4/14 ✅")
             .AddLineStr()
             .AddBoldStrHtml("Выберите настройки графики")
             .AddLineStr()

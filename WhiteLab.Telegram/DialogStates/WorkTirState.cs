@@ -42,7 +42,7 @@ internal class WorkTirState : IDialogState
     {
         var str = new TelegramStringBuilder();
         str
-            .AddItalicStrHtml("Шаг 5/n ✅")
+            .AddItalicStrHtml("Шаг 5/14 ✅")
             .AddLineStr()
             .AddBoldStrHtml("Выберите основную цель использования ПК")
             .AddLineStr()

@@ -55,15 +55,15 @@ internal class CPUSelectionStep : IStep
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.AM5) || g.Socket == "AM5")
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.LGA1851) || g.Socket == "LGA1851")
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.LGA1700) || g.Socket == "LGA1700")
-                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPUAMD) || g.Socket.StartsWith("AM"))
-                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPUIntel) || g.Socket.StartsWith("LGA"))
+                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPU_AMD) || g.Socket.StartsWith("AM"))
+                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPU_Intel) || g.Socket.StartsWith("LGA"))
                     .Where(g => !(_requirements.OverclockingSupport == OverclockingEnum.CPU || _requirements.OverclockingSupport == OverclockingEnum.ALL) || OverclockingSupport(g.Model) == true);
                 break;
             case 1:
                 cpus = _setupCpus
                     .Where(g => !_requirements.Wishes.Contains(WishesEnum.LGA1700) || g.Socket == "LGA1700")
-                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPUAMD) || g.Socket.StartsWith("AM"))
-                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPUIntel) || g.Socket.StartsWith("LGA"))
+                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPU_AMD) || g.Socket.StartsWith("AM"))
+                    .Where(g => !_requirements.Wishes.Contains(WishesEnum.CPU_Intel) || g.Socket.StartsWith("LGA"))
                     .Where(g => !(_requirements.OverclockingSupport == OverclockingEnum.CPU || _requirements.OverclockingSupport == OverclockingEnum.ALL) || OverclockingSupport(g.Model) == true);
                 break;
             case 2:

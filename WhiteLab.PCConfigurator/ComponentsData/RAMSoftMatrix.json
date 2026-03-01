@@ -1,0 +1,296 @@
+{
+  "Valorant": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Counter_Strike_2": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Atomic_Heart": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Warface": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Dota_2": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "PUBG": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Escape_From_Tarkov": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Minecraft": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Fortnite": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "The_Witcher_3": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Cyberpunk_2077": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "World_of_Tanks": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "GTA_V": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Call_of_Duty_Warzone": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Apex_Legends": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Elden_Ring": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Starfield": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "League_of_Legends": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Roblox": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Rocket_League": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Baldurs_Gate_3": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Hogwarts_Legacy": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Resident_Evil_4_Remake": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "God_of_War": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Red_Dead_Redemption_2": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Divinity_Original_Sin_2": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "DOOM_Eternal": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3600,
+    "ram_speed_ddr5": 6000,
+    "timings_ddr4": "18-22-22-42",
+    "timings_ddr5": "30-38-38-76"
+  },
+  "Visual_Studio": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Visual_Studio_Code": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Unity": {
+    "ram_size": 32,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Unreal_Engine": {
+    "ram_size": 32,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Adobe_Photoshop": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Adobe_Illustrator": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Blender": {
+    "ram_size": 32,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "FL_Studio": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "DaVinci_Resolve": {
+    "ram_size": 32,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Ableton_Live": {
+    "ram_size": 16,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Cinema_4D": {
+    "ram_size": 32,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Adobe_After_Effects": {
+    "ram_size": 32,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Adobe_Premiere_Pro": {
+    "ram_size": 32,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Autodesk_Maya": {
+    "ram_size": 32,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  },
+  "Houdini": {
+    "ram_size": 32,
+    "ram_speed_ddr4": 3200,
+    "ram_speed_ddr5": 5600,
+    "timings_ddr4": "16-18-18-38",
+    "timings_ddr5": "28-34-34-45"
+  }
+}

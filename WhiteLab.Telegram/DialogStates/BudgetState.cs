@@ -56,7 +56,7 @@ internal class BudgetState : IDialogState
         if(badget != uint.MaxValue)await client.SendMessage(user.ChatId, $"Бюджет: {badget}₽", cancellationToken: ct);
         user.Requirements = new PCConfigurator.Requirenments.Requirements() { Budget = badget };
         user.PreviewStates.Push(this);
-        user.CurrentState = new ExistPGUState();
+        user.CurrentState = new ExistGPUState();
         await user.CurrentState.SendPage(client, user, ct);
     }
 
@@ -64,7 +64,7 @@ internal class BudgetState : IDialogState
     {
         var str = new TelegramStringBuilder();
         str
-            .AddItalicStrHtml("Шаг 1/n ✅")
+            .AddItalicStrHtml("Шаг 1/14 ✅")
             .AddLineStr()
             .AddBoldStrHtml("Отлично, приступим к созданию сборки \U0001F5A5")
             .AddLineStr()
