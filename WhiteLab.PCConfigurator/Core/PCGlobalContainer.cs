@@ -54,7 +54,9 @@ internal static class PCGlobalContainer
             rel.GPUSoftMatrix = await ModelProvider.GetGPUSoftMatrix(ct);
             rel.GPUTirMatrix = await ModelProvider.GetGPUTirMatrix(ct);
             rel.CPUSoftMatrix= await ModelProvider.GetCPUSoftMatrix(ct);
-            rel.RAMoftMatrix = await ModelProvider.GetRAMSoftMatrix(ct);
+            rel.RAMSoftMatrix = await ModelProvider.GetRAMSoftMatrix(ct);
+            rel.RAMTirMatrix = await ModelProvider.GetRAMTirMatrix(ct);
+
             _container = con;
             _relationships = rel;
         }

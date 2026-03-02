@@ -63,7 +63,13 @@ internal static class ModelProvider
         var jsonStr = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "RAMSoftMatrix.json"), ct);
         return JsonObject.Parse(jsonStr, new JsonNodeOptions { PropertyNameCaseInsensitive = true })
             .ThrowIfDataIsNull("RAMSoftMatrix.json is empty or invalid");
+    }
 
+    public async static Task<JsonNode> GetRAMTirMatrix(CancellationToken ct)
+    {
+        var jsonStr = await File.ReadAllTextAsync(Path.Combine("ComponentsData", "RAMTirMatrix.json"), ct);
+        return JsonObject.Parse(jsonStr, new JsonNodeOptions { PropertyNameCaseInsensitive = true })
+            .ThrowIfDataIsNull("RAMTirMatrix.json is empty or invalid");
     }
 
     public async static Task<List<SSD>> GetSSDs(CancellationToken ct)

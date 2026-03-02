@@ -1,0 +1,92 @@
+﻿{
+    "1080p": {
+        "low": {
+            "ddr4_mhz": 3200,
+            "ddr5_mhz": 5200,
+            "ram_size_gb": 16,
+            "timings_ddr4": "16-18-18-38",
+            "timings_ddr5": "28-34-34-45"
+        },
+        "medium": {
+            "ddr4_mhz": 3200,
+            "ddr5_mhz": 5200,
+            "ram_size_gb": 16,
+            "timings_ddr4": "16-18-18-38",
+            "timings_ddr5": "28-34-34-45"
+        },
+        "high": {
+            "ddr4_mhz": 3600,
+            "ddr5_mhz": 6000,
+            "ram_size_gb": 16,
+            "timings_ddr4": "18-22-22-42",
+            "timings_ddr5": "30-38-38-76"
+        },
+        "ultra": {
+            "ddr4_mhz": 3600,
+            "ddr5_mhz": 6000,
+            "ram_size_gb": 16,
+            "timings_ddr4": "18-22-22-42",
+            "timings_ddr5": "30-38-38-76"
+        }
+    },
+    "2k": {
+        "low": {
+            "ddr4_mhz": 3200,
+            "ddr5_mhz": 5200,
+            "ram_size_gb": 16,
+            "timings_ddr4": "16-18-18-38",
+            "timings_ddr5": "28-34-34-45"
+        },
+        "medium": {
+            "ddr4_mhz": 3200,
+            "ddr5_mhz": 5200,
+            "ram_size_gb": 16,
+            "timings_ddr4": "16-18-18-38",
+            "timings_ddr5": "28-34-34-45"
+        },
+        "high": {
+            "ddr4_mhz": 3600,
+            "ddr5_mhz": 6000,
+            "ram_size_gb": 32,
+            "timings_ddr4": "18-22-22-42",
+            "timings_ddr5": "30-38-38-76"
+        },
+        "ultra": {
+            "ddr4_mhz": 3600,
+            "ddr5_mhz": 6000,
+            "ram_size_gb": 32,
+            "timings_ddr4": "18-22-22-42",
+            "timings_ddr5": "30-38-38-76"
+        }
+    },
+    "4k": {
+        "low": {
+            "ddr4_mhz": 3200,
+            "ddr5_mhz": 5200,
+            "ram_size_gb": 32,
+            "timings_ddr4": "16-18-18-38",
+            "timings_ddr5": "28-34-34-45"
+        },
+        "medium": {
+            "ddr4_mhz": 3200,
+            "ddr5_mhz": 5200,
+            "ram_size_gb": 32,
+            "timings_ddr4": "16-18-18-38",
+            "timings_ddr5": "28-34-34-45"
+        },
+        "high": {
+            "ddr4_mhz": 3600,
+            "ddr5_mhz": 6000,
+            "ram_size_gb": 32,
+            "timings_ddr4": "18-22-22-42",
+            "timings_ddr5": "30-38-38-76"
+        },
+        "ultra": {
+            "ddr4_mhz": 3600,
+            "ddr5_mhz": 6000,
+            "ram_size_gb": 32,
+            "timings_ddr4": "18-22-22-42",
+            "timings_ddr5": "30-38-38-76"
+        }
+    }
+}

@@ -5,4 +5,6 @@ public interface IComponent
     public string Type { get; }
     public string Name { get; }
     public int Price { get; }
+
+    public string ToString();
 }

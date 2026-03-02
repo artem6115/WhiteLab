@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="ComponentsData\RAMTirMatrix.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="ComponentsData\*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
